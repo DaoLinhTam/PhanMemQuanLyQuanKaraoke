@@ -281,6 +281,7 @@
             // barButtonItem20
             // 
             this.barButtonItem20.Caption = "Thông Kê Thu Chi";
+            this.barButtonItem20.Glyph = ((System.Drawing.Image)(resources.GetObject("barButtonItem20.Glyph")));
             this.barButtonItem20.Id = 26;
             this.barButtonItem20.Name = "barButtonItem20";
             this.barButtonItem20.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
@@ -332,7 +333,7 @@
             // 
             // barButtonItem29
             // 
-            this.barButtonItem29.Caption = "Nhập Hàng";
+            this.barButtonItem29.Caption = "Danh Mục Phiếu Nhập Hàng";
             this.barButtonItem29.Glyph = ((System.Drawing.Image)(resources.GetObject("barButtonItem29.Glyph")));
             this.barButtonItem29.Id = 3;
             this.barButtonItem29.Name = "barButtonItem29";
@@ -389,6 +390,7 @@
             this.ribbonPageGroup2.ItemLinks.Add(this.barButtonItem2);
             this.ribbonPageGroup2.ItemLinks.Add(this.barButtonItem3);
             this.ribbonPageGroup2.Name = "ribbonPageGroup2";
+            this.ribbonPageGroup2.ShowCaptionButton = false;
             this.ribbonPageGroup2.Text = "Đăng Nhập";
             // 
             // ribbonPageGroup3
@@ -396,21 +398,26 @@
             this.ribbonPageGroup3.ItemLinks.Add(this.barButtonItem4);
             this.ribbonPageGroup3.ItemLinks.Add(this.barButtonItem5);
             this.ribbonPageGroup3.Name = "ribbonPageGroup3";
+            this.ribbonPageGroup3.ShowCaptionButton = false;
             this.ribbonPageGroup3.Text = "Sao Lưu Phục Hồi";
             // 
             // ribbonPageGroup4
             // 
+            this.ribbonPageGroup4.AllowTextClipping = false;
             this.ribbonPageGroup4.ItemLinks.Add(this.barButtonItem6);
             this.ribbonPageGroup4.ItemLinks.Add(this.barButtonItem7);
             this.ribbonPageGroup4.ItemLinks.Add(this.barButtonItem8);
             this.ribbonPageGroup4.ItemLinks.Add(this.barButtonItem10);
             this.ribbonPageGroup4.Name = "ribbonPageGroup4";
+            this.ribbonPageGroup4.ShowCaptionButton = false;
             this.ribbonPageGroup4.Text = "Quản lý Nhóm Người Dùng";
             // 
             // ribbonPageGroup1
             // 
+            this.ribbonPageGroup1.AllowTextClipping = false;
             this.ribbonPageGroup1.ItemLinks.Add(this.barButtonItem1);
             this.ribbonPageGroup1.Name = "ribbonPageGroup1";
+            this.ribbonPageGroup1.ShowCaptionButton = false;
             this.ribbonPageGroup1.Text = "Cấu Hình";
             // 
             // ribbonPage2
@@ -425,6 +432,7 @@
             // 
             // ribbonPageGroup5
             // 
+            this.ribbonPageGroup5.AllowTextClipping = false;
             this.ribbonPageGroup5.ItemLinks.Add(this.btnSDDichVu);
             this.ribbonPageGroup5.ItemLinks.Add(this.barButtonItem26);
             this.ribbonPageGroup5.ItemLinks.Add(this.barButtonItem31);
@@ -433,9 +441,10 @@
             // 
             // ribbonPageGroup6
             // 
+            this.ribbonPageGroup6.AllowTextClipping = false;
             this.ribbonPageGroup6.ItemLinks.Add(this.barButtonItem11);
             this.ribbonPageGroup6.Name = "ribbonPageGroup6";
-            this.ribbonPageGroup6.Text = "ribbonPageGroup6";
+            this.ribbonPageGroup6.Text = "Khách Hàng";
             // 
             // ribbonPage7
             // 
