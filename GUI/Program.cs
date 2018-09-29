@@ -6,6 +6,7 @@ using DevExpress.UserSkins;
 using DevExpress.Skins;
 using DevExpress.LookAndFeel;
 
+
 namespace GUI
 {
     static class Program
@@ -22,7 +23,9 @@ namespace GUI
             BonusSkins.Register();
             SkinManager.EnableFormSkins();
             UserLookAndFeel.Default.SetSkinStyle("DevExpress Style");
+           //Application.Run(new FrmDM_KhachHang());
             Application.Run(new FrmMain());
+          //  Application.Run(new FrmSuDungDichVu());
         }
     }
 }
