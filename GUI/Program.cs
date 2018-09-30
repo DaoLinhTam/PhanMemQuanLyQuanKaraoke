@@ -24,7 +24,7 @@ namespace GUI
             SkinManager.EnableFormSkins();
             UserLookAndFeel.Default.SetSkinStyle("DevExpress Style");
            //Application.Run(new FrmDM_KhachHang());
-            Application.Run(new FrmMain());
+            Application.Run(new FrmDangNhap());
           //  Application.Run(new FrmSuDungDichVu());
         }
     }

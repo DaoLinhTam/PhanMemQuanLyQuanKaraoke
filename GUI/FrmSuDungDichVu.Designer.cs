@@ -45,6 +45,7 @@
             this.pnlGhiChu = new System.Windows.Forms.Panel();
             this.tabThanhToan = new DevExpress.XtraTab.XtraTabPage();
             this.pnlThanhToan = new System.Windows.Forms.Panel();
+            this.simpleButton5 = new DevExpress.XtraEditors.SimpleButton();
             this.textEdit8 = new DevExpress.XtraEditors.TextEdit();
             this.textEdit7 = new DevExpress.XtraEditors.TextEdit();
             this.textEdit6 = new DevExpress.XtraEditors.TextEdit();
@@ -64,11 +65,10 @@
             this.groupControl2 = new DevExpress.XtraEditors.GroupControl();
             this.xtraTabPage4 = new DevExpress.XtraTab.XtraTabPage();
             this.xtraTabPage3 = new DevExpress.XtraTab.XtraTabPage();
+            this.fpnTang2 = new System.Windows.Forms.FlowLayoutPanel();
             this.xtraTabControl2 = new DevExpress.XtraTab.XtraTabControl();
             this.groupControl3 = new DevExpress.XtraEditors.GroupControl();
             this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
-            this.fpnTang2 = new System.Windows.Forms.FlowLayoutPanel();
-            this.simpleButton5 = new DevExpress.XtraEditors.SimpleButton();
             this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
             this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
             this.simpleButton2 = new DevExpress.XtraEditors.SimpleButton();
@@ -210,7 +210,7 @@
             // 
             this.tabGhiChu.Controls.Add(this.pnlGhiChu);
             this.tabGhiChu.Name = "tabGhiChu";
-            this.tabGhiChu.Size = new System.Drawing.Size(610, 127);
+            this.tabGhiChu.Size = new System.Drawing.Size(547, 129);
             this.tabGhiChu.Text = "Ghi Chú";
             // 
             // pnlGhiChu
@@ -218,14 +218,14 @@
             this.pnlGhiChu.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlGhiChu.Location = new System.Drawing.Point(0, 0);
             this.pnlGhiChu.Name = "pnlGhiChu";
-            this.pnlGhiChu.Size = new System.Drawing.Size(610, 127);
+            this.pnlGhiChu.Size = new System.Drawing.Size(547, 129);
             this.pnlGhiChu.TabIndex = 0;
             // 
             // tabThanhToan
             // 
             this.tabThanhToan.Controls.Add(this.pnlThanhToan);
             this.tabThanhToan.Name = "tabThanhToan";
-            this.tabThanhToan.Size = new System.Drawing.Size(550, 133);
+            this.tabThanhToan.Size = new System.Drawing.Size(547, 129);
             this.tabThanhToan.Text = "Thanh Toán";
             // 
             // pnlThanhToan
@@ -242,8 +242,19 @@
             this.pnlThanhToan.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlThanhToan.Location = new System.Drawing.Point(0, 0);
             this.pnlThanhToan.Name = "pnlThanhToan";
-            this.pnlThanhToan.Size = new System.Drawing.Size(550, 133);
+            this.pnlThanhToan.Size = new System.Drawing.Size(547, 129);
             this.pnlThanhToan.TabIndex = 0;
+            // 
+            // simpleButton5
+            // 
+            this.simpleButton5.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.simpleButton5.Appearance.Options.UseFont = true;
+            this.simpleButton5.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton5.Image")));
+            this.simpleButton5.Location = new System.Drawing.Point(391, 65);
+            this.simpleButton5.Name = "simpleButton5";
+            this.simpleButton5.Size = new System.Drawing.Size(156, 62);
+            this.simpleButton5.TabIndex = 15;
+            this.simpleButton5.Text = "IN HÓA ĐƠN";
             // 
             // textEdit8
             // 
@@ -416,23 +427,31 @@
             // xtraTabPage4
             // 
             this.xtraTabPage4.Name = "xtraTabPage4";
-            this.xtraTabPage4.Size = new System.Drawing.Size(272, 537);
+            this.xtraTabPage4.Size = new System.Drawing.Size(328, 535);
             this.xtraTabPage4.Text = "Tầng 3";
             // 
             // xtraTabPage3
             // 
             this.xtraTabPage3.Controls.Add(this.fpnTang2);
             this.xtraTabPage3.Name = "xtraTabPage3";
-            this.xtraTabPage3.Size = new System.Drawing.Size(332, 537);
+            this.xtraTabPage3.Size = new System.Drawing.Size(328, 535);
             this.xtraTabPage3.Text = "Tầng 2";
+            // 
+            // fpnTang2
+            // 
+            this.fpnTang2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.fpnTang2.Location = new System.Drawing.Point(0, 0);
+            this.fpnTang2.Name = "fpnTang2";
+            this.fpnTang2.Size = new System.Drawing.Size(328, 535);
+            this.fpnTang2.TabIndex = 0;
             // 
             // xtraTabControl2
             // 
             this.xtraTabControl2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.xtraTabControl2.Location = new System.Drawing.Point(2, 21);
+            this.xtraTabControl2.Location = new System.Drawing.Point(2, 20);
             this.xtraTabControl2.Name = "xtraTabControl2";
             this.xtraTabControl2.SelectedTabPage = this.xtraTabPage4;
-            this.xtraTabControl2.Size = new System.Drawing.Size(334, 562);
+            this.xtraTabControl2.Size = new System.Drawing.Size(334, 563);
             this.xtraTabControl2.TabIndex = 0;
             this.xtraTabControl2.TabPages.AddRange(new DevExpress.XtraTab.XtraTabPage[] {
             this.xtraTabPage3,
@@ -459,25 +478,6 @@
             this.groupControl1.Size = new System.Drawing.Size(338, 585);
             this.groupControl1.TabIndex = 2;
             this.groupControl1.Text = "Danh Mục Phòng";
-            // 
-            // fpnTang2
-            // 
-            this.fpnTang2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.fpnTang2.Location = new System.Drawing.Point(0, 0);
-            this.fpnTang2.Name = "fpnTang2";
-            this.fpnTang2.Size = new System.Drawing.Size(332, 537);
-            this.fpnTang2.TabIndex = 0;
-            // 
-            // simpleButton5
-            // 
-            this.simpleButton5.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.simpleButton5.Appearance.Options.UseFont = true;
-            this.simpleButton5.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton5.Image")));
-            this.simpleButton5.Location = new System.Drawing.Point(391, 65);
-            this.simpleButton5.Name = "simpleButton5";
-            this.simpleButton5.Size = new System.Drawing.Size(156, 62);
-            this.simpleButton5.TabIndex = 15;
-            this.simpleButton5.Text = "IN HÓA ĐƠN";
             // 
             // simpleButton1
             // 

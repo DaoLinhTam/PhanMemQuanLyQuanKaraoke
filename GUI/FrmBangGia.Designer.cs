@@ -84,7 +84,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(411, 15);
+            this.label1.Location = new System.Drawing.Point(69, 18);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(79, 13);
             this.label1.TabIndex = 3;
@@ -93,7 +93,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(407, 45);
+            this.label2.Location = new System.Drawing.Point(65, 48);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(82, 13);
             this.label2.TabIndex = 4;
@@ -102,7 +102,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(407, 71);
+            this.label3.Location = new System.Drawing.Point(65, 74);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(82, 13);
             this.label3.TabIndex = 4;
@@ -111,7 +111,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(407, 93);
+            this.label4.Location = new System.Drawing.Point(454, 14);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(82, 13);
             this.label4.TabIndex = 4;
@@ -119,28 +119,28 @@
             // 
             // textEdit1
             // 
-            this.textEdit1.Location = new System.Drawing.Point(500, 12);
+            this.textEdit1.Location = new System.Drawing.Point(158, 15);
             this.textEdit1.Name = "textEdit1";
             this.textEdit1.Size = new System.Drawing.Size(163, 20);
             this.textEdit1.TabIndex = 5;
             // 
             // textEdit2
             // 
-            this.textEdit2.Location = new System.Drawing.Point(500, 38);
+            this.textEdit2.Location = new System.Drawing.Point(158, 41);
             this.textEdit2.Name = "textEdit2";
             this.textEdit2.Size = new System.Drawing.Size(163, 20);
             this.textEdit2.TabIndex = 5;
             // 
             // textEdit3
             // 
-            this.textEdit3.Location = new System.Drawing.Point(500, 64);
+            this.textEdit3.Location = new System.Drawing.Point(158, 67);
             this.textEdit3.Name = "textEdit3";
             this.textEdit3.Size = new System.Drawing.Size(163, 20);
             this.textEdit3.TabIndex = 5;
             // 
             // textEdit4
             // 
-            this.textEdit4.Location = new System.Drawing.Point(500, 90);
+            this.textEdit4.Location = new System.Drawing.Point(547, 11);
             this.textEdit4.Name = "textEdit4";
             this.textEdit4.Size = new System.Drawing.Size(163, 20);
             this.textEdit4.TabIndex = 5;
@@ -148,7 +148,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(423, 123);
+            this.label5.Location = new System.Drawing.Point(470, 44);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(66, 13);
             this.label5.TabIndex = 6;
@@ -156,7 +156,7 @@
             // 
             // comboBoxEdit1
             // 
-            this.comboBoxEdit1.Location = new System.Drawing.Point(500, 120);
+            this.comboBoxEdit1.Location = new System.Drawing.Point(547, 41);
             this.comboBoxEdit1.Name = "comboBoxEdit1";
             this.comboBoxEdit1.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -166,7 +166,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(406, 153);
+            this.label7.Location = new System.Drawing.Point(453, 74);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(90, 13);
             this.label7.TabIndex = 3;
@@ -175,7 +175,7 @@
             // dateEdit1
             // 
             this.dateEdit1.EditValue = null;
-            this.dateEdit1.Location = new System.Drawing.Point(500, 150);
+            this.dateEdit1.Location = new System.Drawing.Point(547, 71);
             this.dateEdit1.Name = "dateEdit1";
             this.dateEdit1.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});

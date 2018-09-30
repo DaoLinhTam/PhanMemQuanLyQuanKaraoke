@@ -131,7 +131,7 @@
             this.ribbonPage4,
             this.ribbonPage3,
             this.ribbonPage5});
-            this.rbctrMain.Size = new System.Drawing.Size(994, 148);
+            this.rbctrMain.Size = new System.Drawing.Size(994, 144);
             // 
             // barButtonItem1
             // 
