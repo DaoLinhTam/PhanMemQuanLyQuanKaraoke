@@ -18,8 +18,70 @@ namespace GUI
         public FrmMain()
         {
             InitializeComponent();
+            SuKien();
           
             
+        }
+
+        private void SuKien()
+        {
+            btnDangXuat.ItemClick += btnDangXuat_ItemClick;
+            btnDoiMK.ItemClick += btnDoiMK_ItemClick;
+            btnQLND.ItemClick += btnQLND_ItemClick;
+            btnPhanQuyen.ItemClick += btnPhanQuyen_ItemClick;
+            btnGroupND.ItemClick += btnGroupND_ItemClick;
+            this.Load += FrmMain_Load;
+            btnThemND.ItemClick += btnThemND_ItemClick;
+            //from danh mục chính
+            btnKhachHang.ItemClick += btnKhachHang_ItemClick;
+        }
+
+        void btnKhachHang_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            ShowFrom(new FrmKhachHang());
+        }
+
+        void btnThemND_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            ShowFrom(new FrmThemNguoiDungVaoNhomNguoiDung());
+        }
+
+        void btnGroupND_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            ShowFrom(new FrmQLND());
+        }
+
+        void btnPhanQuyen_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            FrmPhanQuyen frm = new FrmPhanQuyen();
+            ShowFrom(frm);
+        }
+
+        void FrmMain_Load(object sender, EventArgs e)
+        {
+            FrmBaner frm = new FrmBaner();
+            ShowFrom(frm);
+        }
+
+
+        //sự kiện quản lý người dùng
+        void btnQLND_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            ShowFrom(new FrmQLND());
+        }
+
+        void btnDoiMK_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+          
+            FrmDoiMatkhau frm = new FrmDoiMatkhau();
+            frm.ShowDialog();
+           
+           
+        }
+
+        void btnDangXuat_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            this.Hide();
         }
 
 
@@ -44,6 +106,7 @@ namespace GUI
             Form frm = (Form)f;
             if (KiemTraFrom_TonTai(frm.Name)) return;
             frm.MdiParent = this;
+            frm.Dock = DockStyle.Fill;
             frm.Show();
            
         }
@@ -58,5 +121,7 @@ namespace GUI
         {
             
         }
+
+       
     }
 }

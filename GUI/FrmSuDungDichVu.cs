@@ -13,7 +13,7 @@ namespace GUI
 {
     public partial class FrmSuDungDichVu : DevExpress.XtraEditors.XtraForm
     {
-        AutoResizeControl auto;
+       
         public FrmSuDungDichVu()
         {
             this.SuspendLayout();

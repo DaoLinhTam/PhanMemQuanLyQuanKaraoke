@@ -29,23 +29,33 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmDoiMatkhau));
+            this.txtTenTK = new DevExpress.XtraEditors.TextEdit();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
+            this.labelControl5 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
-            this.labelControl4 = new DevExpress.XtraEditors.LabelControl();
-            this.textEdit1 = new DevExpress.XtraEditors.TextEdit();
-            this.textEdit2 = new DevExpress.XtraEditors.TextEdit();
-            this.textEdit3 = new DevExpress.XtraEditors.TextEdit();
-            this.simpleButton2 = new DevExpress.XtraEditors.SimpleButton();
-            this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit1.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit2.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit3.Properties)).BeginInit();
+            this.btnLuu = new DevExpress.XtraEditors.SimpleButton();
+            this.btnHuy = new DevExpress.XtraEditors.SimpleButton();
+            this.txtMKMoi2 = new DevExpress.XtraEditors.TextEdit();
+            this.txtMKMoi = new DevExpress.XtraEditors.TextEdit();
+            this.txtMKCU = new DevExpress.XtraEditors.TextEdit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtTenTK.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtMKMoi2.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtMKMoi.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtMKCU.Properties)).BeginInit();
             this.SuspendLayout();
+            // 
+            // txtTenTK
+            // 
+            this.txtTenTK.Enabled = false;
+            this.txtTenTK.Location = new System.Drawing.Point(151, 24);
+            this.txtTenTK.Name = "txtTenTK";
+            this.txtTenTK.Size = new System.Drawing.Size(140, 20);
+            this.txtTenTK.TabIndex = 0;
             // 
             // labelControl1
             // 
-            this.labelControl1.Location = new System.Drawing.Point(52, 92);
+            this.labelControl1.Location = new System.Drawing.Point(70, 65);
             this.labelControl1.Name = "labelControl1";
             this.labelControl1.Size = new System.Drawing.Size(62, 13);
             this.labelControl1.TabIndex = 0;
@@ -53,87 +63,90 @@
             // 
             // labelControl2
             // 
-            this.labelControl2.Location = new System.Drawing.Point(52, 130);
+            this.labelControl2.Location = new System.Drawing.Point(65, 103);
             this.labelControl2.Name = "labelControl2";
             this.labelControl2.Size = new System.Drawing.Size(67, 13);
             this.labelControl2.TabIndex = 1;
             this.labelControl2.Text = "Mật khẩu mới:";
             // 
+            // labelControl5
+            // 
+            this.labelControl5.Location = new System.Drawing.Point(57, 27);
+            this.labelControl5.Name = "labelControl5";
+            this.labelControl5.Size = new System.Drawing.Size(75, 13);
+            this.labelControl5.TabIndex = 0;
+            this.labelControl5.Text = "Tên Tài Khoản :";
+            // 
             // labelControl3
             // 
-            this.labelControl3.Location = new System.Drawing.Point(52, 170);
+            this.labelControl3.Location = new System.Drawing.Point(43, 143);
             this.labelControl3.Name = "labelControl3";
             this.labelControl3.Size = new System.Drawing.Size(89, 13);
             this.labelControl3.TabIndex = 2;
             this.labelControl3.Text = "Nhập lại mật khẩu:";
             // 
-            // labelControl4
+            // btnLuu
             // 
-            this.labelControl4.Appearance.Font = new System.Drawing.Font("Tahoma", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelControl4.Location = new System.Drawing.Point(80, 12);
-            this.labelControl4.Name = "labelControl4";
-            this.labelControl4.Size = new System.Drawing.Size(208, 33);
-            this.labelControl4.TabIndex = 3;
-            this.labelControl4.Text = "ĐỔI MẬT KHẨU";
+            this.btnLuu.Image = ((System.Drawing.Image)(resources.GetObject("btnLuu.Image")));
+            this.btnLuu.Location = new System.Drawing.Point(151, 177);
+            this.btnLuu.Name = "btnLuu";
+            this.btnLuu.Size = new System.Drawing.Size(67, 28);
+            this.btnLuu.TabIndex = 16;
+            this.btnLuu.Text = "Lưu";
             // 
-            // textEdit1
+            // btnHuy
             // 
-            this.textEdit1.Location = new System.Drawing.Point(146, 89);
-            this.textEdit1.Name = "textEdit1";
-            this.textEdit1.Size = new System.Drawing.Size(192, 20);
-            this.textEdit1.TabIndex = 4;
+            this.btnHuy.Image = ((System.Drawing.Image)(resources.GetObject("btnHuy.Image")));
+            this.btnHuy.Location = new System.Drawing.Point(224, 177);
+            this.btnHuy.Name = "btnHuy";
+            this.btnHuy.Size = new System.Drawing.Size(67, 28);
+            this.btnHuy.TabIndex = 17;
+            this.btnHuy.Text = "Hủy";
             // 
-            // textEdit2
+            // txtMKMoi2
             // 
-            this.textEdit2.Location = new System.Drawing.Point(146, 127);
-            this.textEdit2.Name = "textEdit2";
-            this.textEdit2.Size = new System.Drawing.Size(192, 20);
-            this.textEdit2.TabIndex = 4;
+            this.txtMKMoi2.Location = new System.Drawing.Point(151, 100);
+            this.txtMKMoi2.Name = "txtMKMoi2";
+            this.txtMKMoi2.Size = new System.Drawing.Size(140, 20);
+            this.txtMKMoi2.TabIndex = 3;
             // 
-            // textEdit3
+            // txtMKMoi
             // 
-            this.textEdit3.Location = new System.Drawing.Point(146, 167);
-            this.textEdit3.Name = "textEdit3";
-            this.textEdit3.Size = new System.Drawing.Size(192, 20);
-            this.textEdit3.TabIndex = 4;
+            this.txtMKMoi.Location = new System.Drawing.Point(151, 140);
+            this.txtMKMoi.Name = "txtMKMoi";
+            this.txtMKMoi.Size = new System.Drawing.Size(140, 20);
+            this.txtMKMoi.TabIndex = 2;
             // 
-            // simpleButton2
+            // txtMKCU
             // 
-            this.simpleButton2.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton2.Image")));
-            this.simpleButton2.Location = new System.Drawing.Point(219, 215);
-            this.simpleButton2.Name = "simpleButton2";
-            this.simpleButton2.Size = new System.Drawing.Size(119, 28);
-            this.simpleButton2.TabIndex = 17;
-            this.simpleButton2.Text = "Hủy";
-            // 
-            // simpleButton1
-            // 
-            this.simpleButton1.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton1.Image")));
-            this.simpleButton1.Location = new System.Drawing.Point(83, 215);
-            this.simpleButton1.Name = "simpleButton1";
-            this.simpleButton1.Size = new System.Drawing.Size(119, 28);
-            this.simpleButton1.TabIndex = 16;
-            this.simpleButton1.Text = "Lưu";
+            this.txtMKCU.Location = new System.Drawing.Point(151, 62);
+            this.txtMKCU.Name = "txtMKCU";
+            this.txtMKCU.Size = new System.Drawing.Size(140, 20);
+            this.txtMKCU.TabIndex = 1;
             // 
             // FrmDoiMatkhau
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(383, 271);
-            this.Controls.Add(this.simpleButton2);
-            this.Controls.Add(this.simpleButton1);
-            this.Controls.Add(this.textEdit3);
-            this.Controls.Add(this.textEdit2);
-            this.Controls.Add(this.textEdit1);
-            this.Controls.Add(this.labelControl4);
+            this.ClientSize = new System.Drawing.Size(383, 246);
+            this.Controls.Add(this.btnHuy);
+            this.Controls.Add(this.btnLuu);
+            this.Controls.Add(this.txtMKMoi2);
+            this.Controls.Add(this.txtMKMoi);
+            this.Controls.Add(this.txtTenTK);
+            this.Controls.Add(this.txtMKCU);
             this.Controls.Add(this.labelControl3);
+            this.Controls.Add(this.labelControl5);
             this.Controls.Add(this.labelControl2);
             this.Controls.Add(this.labelControl1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow;
             this.Name = "FrmDoiMatkhau";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Đổi mật khẩu";
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit1.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit2.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit3.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtTenTK.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtMKMoi2.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtMKMoi.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtMKCU.Properties)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -141,15 +154,17 @@
 
         #endregion
 
+        private DevExpress.XtraEditors.TextEdit txtTenTK;
         private DevExpress.XtraEditors.LabelControl labelControl1;
         private DevExpress.XtraEditors.LabelControl labelControl2;
+        private DevExpress.XtraEditors.LabelControl labelControl5;
         private DevExpress.XtraEditors.LabelControl labelControl3;
-        private DevExpress.XtraEditors.LabelControl labelControl4;
-        private DevExpress.XtraEditors.TextEdit textEdit1;
-        private DevExpress.XtraEditors.TextEdit textEdit2;
-        private DevExpress.XtraEditors.TextEdit textEdit3;
-        private DevExpress.XtraEditors.SimpleButton simpleButton2;
-        private DevExpress.XtraEditors.SimpleButton simpleButton1;
+        private DevExpress.XtraEditors.SimpleButton btnLuu;
+        private DevExpress.XtraEditors.SimpleButton btnHuy;
+        private DevExpress.XtraEditors.TextEdit txtMKMoi2;
+        private DevExpress.XtraEditors.TextEdit txtMKMoi;
+        private DevExpress.XtraEditors.TextEdit txtMKCU;
+
 
 
     }
