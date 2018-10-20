@@ -11,9 +11,9 @@ using DevExpress.XtraEditors;
 
 namespace GUI
 {
-    public partial class FrmNhomND_ThemND : DevExpress.XtraEditors.XtraForm
+    public partial class FrmDanhMucMH : DevExpress.XtraEditors.XtraForm
     {
-        public FrmNhomND_ThemND()
+        public FrmDanhMucMH()
         {
             InitializeComponent();
         }

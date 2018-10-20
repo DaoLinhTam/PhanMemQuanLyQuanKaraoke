@@ -11,11 +11,16 @@ using DevExpress.XtraEditors;
 
 namespace GUI
 {
-    public partial class FrmThemMatHang : DevExpress.XtraEditors.XtraForm
+    public partial class FrmTrangBiThietBi : DevExpress.XtraEditors.XtraForm
     {
-        public FrmThemMatHang()
+        public FrmTrangBiThietBi()
         {
             InitializeComponent();
+        }
+
+        private void gridControl1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

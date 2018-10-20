@@ -11,9 +11,9 @@ using DevExpress.XtraEditors;
 
 namespace GUI
 {
-    public partial class FrmDanhMucThuChi : DevExpress.XtraEditors.XtraForm
+    public partial class FrmThietBiPhong : DevExpress.XtraEditors.XtraForm
     {
-        public FrmDanhMucThuChi()
+        public FrmThietBiPhong()
         {
             InitializeComponent();
         }

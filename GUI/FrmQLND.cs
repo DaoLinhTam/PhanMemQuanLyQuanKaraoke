@@ -16,28 +16,26 @@ namespace GUI
         public FrmQLND()
         {
             InitializeComponent();
-            SuKien();
         }
 
-        private void SuKien()
+        private void nHANVIENBindingNavigatorSaveItem_Click(object sender, EventArgs e)
         {
-
-        }
-
-
-
-
-
-        private void FrmQuanLyNhomNguoiDung_Load(object sender, EventArgs e)
-        {
+            this.Validate();
+            this.nHANVIENBindingSource.EndEdit();
+            this.tableAdapterManager.UpdateAll(this.quanLyKaraoke);
 
         }
 
         private void FrmQLND_Load(object sender, EventArgs e)
         {
-
-
-
+            // TODO: This line of code loads data into the 'quanLyKaraoke.NHANVIEN' table. You can move, or remove it, as needed.
+            this.nHANVIENTableAdapter.Fill(this.quanLyKaraoke.NHANVIEN);
+            // TODO: This line of code loads data into the 'quanLyKaraoke.NGUOIDUNG' table. You can move, or remove it, as needed.
+            this.nGUOIDUNGTableAdapter.Fill(this.quanLyKaraoke.NGUOIDUNG);
+            // TODO: This line of code loads data into the 'quanLyKaraoke.NGUOIDUNG' table. You can move, or remove it, as needed.
+            this.nGUOIDUNGTableAdapter.Fill(this.quanLyKaraoke.NGUOIDUNG);
+            // TODO: This line of code loads data into the 'quanLyKaraoke.NHANVIEN' table. You can move, or remove it, as needed.
+            this.nHANVIENTableAdapter.Fill(this.quanLyKaraoke.NHANVIEN);
 
         }
 
@@ -45,20 +43,8 @@ namespace GUI
         {
             this.Validate();
             this.nGUOIDUNGBindingSource.EndEdit();
-            this.tableAdapterManager.UpdateAll(this.quanLyKaraokeDataSet);
+            this.tableAdapterManager.UpdateAll(this.quanLyKaraoke);
 
         }
-
-        private void FrmQLND_Load_1(object sender, EventArgs e)
-        {
-            // TODO: This line of code loads data into the 'quanLyKaraokeDataSet.NHANVIEN' table. You can move, or remove it, as needed.
-            this.nHANVIENTableAdapter.Fill(this.quanLyKaraokeDataSet.NHANVIEN);
-            // TODO: This line of code loads data into the 'quanLyKaraokeDataSet.NGUOIDUNG' table. You can move, or remove it, as needed.
-            this.nGUOIDUNGTableAdapter.Fill(this.quanLyKaraokeDataSet.NGUOIDUNG);
-
-        }
-
-
     }
-    
 }

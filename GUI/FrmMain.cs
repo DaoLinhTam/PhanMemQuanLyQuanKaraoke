@@ -34,6 +34,16 @@ namespace GUI
             btnThemND.ItemClick += btnThemND_ItemClick;
             //from danh mục chính
             btnKhachHang.ItemClick += btnKhachHang_ItemClick;
+
+
+            //danh mục chính
+
+            btnDatPhong.ItemClick += btnDatPhong_ItemClick;
+        }
+
+        void btnDatPhong_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            ShowFrom(new FrmDatPhong());
         }
 
         void btnKhachHang_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
@@ -48,7 +58,6 @@ namespace GUI
 
         void btnGroupND_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            ShowFrom(new FrmQLND());
         }
 
         void btnPhanQuyen_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
