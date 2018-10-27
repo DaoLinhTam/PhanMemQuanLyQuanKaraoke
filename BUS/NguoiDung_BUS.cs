@@ -36,6 +36,11 @@ namespace BUS
         {
            return nd.XoaNguoiDung(tendn);
         }
+        public string LoadTenNhanVien(String TenND)
+        {
+            return nd.LoadTenNhanVien(TenND);
+
+        }
 
 
     }

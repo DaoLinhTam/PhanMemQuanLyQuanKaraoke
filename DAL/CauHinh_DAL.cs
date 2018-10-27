@@ -50,69 +50,73 @@ namespace DAL
         }
         public int checkUser(string pUser, string pPass)
         {
+
             try
             {
-                QLKaraokeDataContext db = new QLKaraokeDataContext();
-        
-                int dem = (from nd in db.NGUOIDUNGs
-                           where nd.MATKHAU == pPass && nd.TENDANGNHAP == pUser
-                           select nd).Count();
-                if (dem == 0) return 2; //k có user nào
-
-                NGUOIDUNG nguoidung = (from nd in db.NGUOIDUNGs
-                                       where nd.MATKHAU == pPass && nd.TENDANGNHAP == pUser
-                                       select nd).First();
-                if (nguoidung.TINHTRANG == null || nguoidung.TINHTRANG == false)
-                    return 1;//tài khoản bị khóa
-                return 0;
+                String strQuery = "SELECT * FROM NGUOIDUNG WHERE TENDANGNHAP ='" + pUser + "' AND MATKHAU = '" + pPass + "'";
+                String strConnect = Properties.Settings.Default.StringConnect;
+                SqlDataAdapter da = new SqlDataAdapter(strQuery, strConnect);
+                DataTable dt = new DataTable();
+                da.Fill(dt);
+               
+                int dong = dt.Rows.Count;
+                if (dong > 0)   //tồn tại 1 dòng trong bảng người dùng khi truy vấn
+                {
+                    bool stateKhoa = (bool)dt.Rows[0][3];
+                    if (!stateKhoa)
+                    {
+                        return 1; //tài khoản bị khóa
+                    }
+                    return 0; //đăng nhập thành công!
+                }
+                else  //domg==0
+                {
+                    return 2;  //không có user //hoặc tên mk or tài khoản bị sai
+                }
             }
-            catch
+            catch (Exception ex)  //trường hợp chọn sai database và không có bảng người dùng=> chuỗi cấu hình sai
             {
-                return 3; // lỗi config
+                return 3;  //sai database
             }
-           
-
         }
         public List<string> getDatabaseName(string pServerName, string pUser, string pPass)
         {
-            List<string> lst = new List<string>();
+            List<string> lst = new List<string>();  //khởi tạo list chứa các database
             DataTable dt = new DataTable();
             try
             {
-                string strQuery = "Select name From sys.databases";
-                string strCnn = "Server=" + pServerName + ";Database=master;User ID=" + pUser + ";pwd=" + pPass + "";
+                string strQuery = "SELECT NAME FROM  SYS.DATABASES";
+                string strCnn = "SERVER=" + pServerName + ";DATABASE=MASTER;USER ID=" + pUser + ";PWD=" + pPass + "";
                 SqlDataAdapter da = new SqlDataAdapter(strQuery, strCnn);
                 da.Fill(dt);
                 foreach (DataRow row in dt.Rows)
                     foreach (DataColumn col in dt.Columns)
                         lst.Add(row[col].ToString());
 
+                return lst;
             }
             catch
             {
                 return null;
             }
-            return lst;
+            
         }
 
 
         public void saveConnect(string pServerName, string pDatabase, string pUser, string pPass)
         {
             string strConnect = "Server=" + pServerName + ";Database=" + pDatabase + ";User ID=" + pUser + ";pwd=" + pPass + "";
-            DAL.Properties.Settings.Default.StringConnect= strConnect;
-            DAL.Properties.Settings.Default.Save();
-          
-
-         
-           
+            DAL.Properties.Settings.Default.StringConnect= strConnect; 
+            DAL.Properties.Settings.Default.Save();       
         }
 
         public DataTable getServerName()
         {
+            //lệnh getserver name
+            //nhớ bật sql browser và tắt tường lửa
             SqlDataSourceEnumerator instance = SqlDataSourceEnumerator.Instance;
             return instance.GetDataSources();
         }
-
 
         public String Load_User()
         {
@@ -138,8 +142,6 @@ namespace DAL
         public bool loadState_Chk()
         {
             return DAL.Properties.Settings.Default.CheckLuu;
-        }
-
-   
+        }  
     }
 }

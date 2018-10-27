@@ -10,12 +10,12 @@ using System.Windows.Forms;
 
 namespace DAL
 {
-    public class NguoiDung_DAL:QLKaraokeDataContext
+    public class NguoiDung_DAL:Database
     {
         public dynamic loadTable_NguoiDung()
         {
-           return from nd in NGUOIDUNGs
-                  join nv in NHANVIENs on nd.MANV equals nv.MANV
+           return from nd in db.NGUOIDUNGs
+                  join nv in db.NHANVIENs on nd.MANV equals nv.MANV
                   select new { TENNHANVIEN = nv.TENNV, TENDANGNHAP = nd.TENDANGNHAP, nd.TINHTRANG };
           
         }
@@ -29,8 +29,8 @@ namespace DAL
                 nd.MATKHAU = mk;
                 nd.MANV = manv;
                 nd.TINHTRANG = true;
-                this.NGUOIDUNGs.InsertOnSubmit(nd);
-                this.SubmitChanges();
+                db.NGUOIDUNGs.InsertOnSubmit(nd);
+                db.SubmitChanges();
                 return true;
             }
             catch
@@ -42,11 +42,11 @@ namespace DAL
         {
             try
             {
-                NGUOIDUNG nguoidung = (from nd in NGUOIDUNGs
+                NGUOIDUNG nguoidung = (from nd in db.NGUOIDUNGs
                                        where nd.TENDANGNHAP == tendn
                                        select nd).First();
                 nguoidung.MATKHAU = mk;
-                this.SubmitChanges();
+                db.SubmitChanges();
                 return true;
             }
             catch
@@ -60,11 +60,11 @@ namespace DAL
         {
             try
             {
-                NGUOIDUNG nguoidung = (from nd in NGUOIDUNGs
+                NGUOIDUNG nguoidung = (from nd in db. NGUOIDUNGs
                                        where nd.TENDANGNHAP == tendn
                                        select nd).First();
                 nguoidung.TINHTRANG=bol;
-                this.SubmitChanges();
+                db.SubmitChanges();
                 return true;
             }
             catch
@@ -77,17 +77,29 @@ namespace DAL
         {
             try
             {
-                NGUOIDUNG nguoidung = (from nd in NGUOIDUNGs
+                NGUOIDUNG nguoidung = (from nd in db.NGUOIDUNGs
                                        where nd.TENDANGNHAP == tendn
                                        select nd).First();
-                this.NGUOIDUNGs.DeleteOnSubmit(nguoidung);
-                this.SubmitChanges();
+                db.NGUOIDUNGs.DeleteOnSubmit(nguoidung);
+                db.SubmitChanges();
                 return true;
             }
             catch
             {
                 return false;
             }
+        }
+
+
+        public string LoadTenNhanVien(String TenND)
+        {
+            var strTenNV= from nd in db.NGUOIDUNGs
+                              where nd.TENDANGNHAP == TenND
+                              join nv in db.NHANVIENs on nd.MANV equals nv.MANV
+                              select new { TenNV = nv.TENNV };
+
+            return strTenNV.First().TenNV;
+
         }
 
 

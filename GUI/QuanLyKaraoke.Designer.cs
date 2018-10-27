@@ -9,6 +9,7 @@
 //------------------------------------------------------------------------------
 
 #pragma warning disable 1591
+using DAL;
 
 namespace GUI {
     
@@ -1464,7 +1465,7 @@ SELECT MANV, TENNV, SDT, NGAYSINH, DIACHI, QUEQUAN FROM NHANVIEN WHERE (MANV = @
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::GUI.Properties.Settings.Default.QLKARAOKEConnectionString;
+            this._connection.ConnectionString = DAL.ProjectSetting.ConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1930,7 +1931,7 @@ SELECT TENDANGNHAP, MANV, MATKHAU FROM NGUOIDUNG WHERE (TENDANGNHAP = @TENDANGNH
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::GUI.Properties.Settings.Default.QLKARAOKEConnectionString;
+            this._connection.ConnectionString = DAL.ProjectSetting.ConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]

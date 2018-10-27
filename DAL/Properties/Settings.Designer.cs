@@ -74,11 +74,11 @@ namespace DAL.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=MINHTAM\\SQLEXPRESS;Initial Catalog=QuanLyKaraoke;Integrated Security=" +
-            "True")]
-        public string QuanLyKaraokeConnectionString1 {
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=MINHTAM\\SQLEXPRESS;Initial Catalog=QLKARAOKE;Persist Security Info=Tr" +
+            "ue;UsID=sa;Password=sa2012")]
+        public string QLKARAOKEConnectionString {
             get {
-                return ((string)(this["QuanLyKaraokeConnectionString1"]));
+                return ((string)(this["QLKARAOKEConnectionString"]));
             }
         }
     }

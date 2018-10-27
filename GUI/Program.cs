@@ -11,6 +11,10 @@ namespace GUI
 {
     static class Program
     {
+
+        public static FrmMain frmMain;
+        public static FrmDoiMatkhau frmDoiMK;
+        public static FrmDangNhap frmDangNhap;
         /// <summary>
         /// The main entry point for the application.
         /// </summary>
@@ -23,9 +27,14 @@ namespace GUI
             BonusSkins.Register();
             SkinManager.EnableFormSkins();
             UserLookAndFeel.Default.SetSkinStyle("DevExpress Style");
-          Application.Run(new FrmMain());
+            frmDangNhap = new FrmDangNhap();
+            Application.Run(frmDangNhap);
+        
+          
     
             //Application.Run(new FrmSuDungDichVu());
         }
+
+   
     }
 }

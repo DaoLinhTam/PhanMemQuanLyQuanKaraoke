@@ -8,13 +8,13 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using DevExpress.XtraEditors;
-using BUS;
+using DAL;
 
 namespace GUI
 {
     public partial class FrmDangNhap : DevExpress.XtraEditors.XtraForm
     {
-        CauHinh_BUS cauhinh = new CauHinh_BUS();
+        CauHinh_DAL cauhinh = new CauHinh_DAL();
         public FrmDangNhap()
         {
             InitializeComponent();
@@ -30,36 +30,45 @@ namespace GUI
             btnThoat.Click += btnThoat_Click;
         }
 
+
+        //thoát chương trình
         void btnThoat_Click(object sender, EventArgs e)
         {
             Application.Exit();
         }
 
+        //xử ly lưu mật khẩu
         void chkLuuMK_CheckedChanged(object sender, EventArgs e)
         {
             cauhinh.saveState_Chk(chkLuuMK.Checked);
         }
 
+        //Load from Đăng Nhập
         void FrmDangNhap_Load(object sender, EventArgs e)
         {
-            if (chkLuuMK.Checked = cauhinh.loadState_Chk())
+            //loadState_Chk() : load trạng thái checkbox từ appconfig
+            if (chkLuuMK.Checked = cauhinh.loadState_Chk())  
             {
                
-                txtMK.Text = cauhinh.Load_Pass();
-                txtTenTK.Text = cauhinh.Load_User();
+                txtMK.Text = cauhinh.Load_Pass();  //Load pass từ appconfig
+                txtTenTK.Text = cauhinh.Load_User();  //load user từ appconfig
             }
-            else
+            else  //nếu không có lưu mk thì gán trống textbox
             {
                 txtTenTK.Text = string.Empty;
                 txtMK.Text = string.Empty;
                 chkLuuMK.Checked = false;
             }
 
+           
+
         }
 
+
+        //Xử ly nút đăng nhập
         void btnDN_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrEmpty(txtTenTK.Text.Trim()))
+            if (string.IsNullOrEmpty(txtTenTK.Text.Trim()))   //nếu tên mk trống
             {
                 
                 this.txtTenTK.Focus();
@@ -67,34 +76,38 @@ namespace GUI
                 return;
 
             }
-            if (string.IsNullOrEmpty(txtMK.Text.Trim()))
+            if (string.IsNullOrEmpty(txtMK.Text.Trim()))  //nếu tên pass trống
             {
                 MessageBox.Show("Vui Lòng Nhập Tên Mật Khẩu!", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);                
                 this.txtMK.Focus();
                 return;
             }
+            //dùng biến k để check cấu hình
+            //nếu k=0 kết nối thnahf công
+            //nếu k=1 kết nối chuỗi k tồn tại
+            //nếu k=2 chuỗi cấu hình k phù hợp
             int k = cauhinh.Check_Config();
             
 
             if (k == 0) //chuoi cau hinh đúng
             {
-                XuLyDangNhap();
+                XuLyDangNhap(); 
             }
-            else if (k == 1)
+            else if (k == 1) // kết nối chuỗi k tồn tại
             {
                 MessageBox.Show("Chuỗi Cấu Hình Không Tồn Tại!", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-
-                XuLyCauHinh();
+                XuLyCauHinh(); //thực hiện xử lý cấu hình
             }
             else
             {
                 MessageBox.Show("Chuỗi Cấu Hình Không Đúng!!", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                XuLyCauHinh();
+                XuLyCauHinh();//thực hiện xử lý cấu hình
             }
         }
 
         private void XuLyDangNhap()
         {
+            //tạo biến k để checkUser xem có csdl có tên nd này hay không
             int k = cauhinh.checkUser(txtTenTK.Text, txtMK.Text);
             if(k==2)
                 MessageBox.Show("Tên Tài Khoản Hoặc Password Bị Sai", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -102,25 +115,32 @@ namespace GUI
                 MessageBox.Show("Tài Khoản Đã Bị Khóa", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             else if (k == 3)
             {
-                MessageBox.Show("Cấu Hình Không Đúng", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Chọn Sai Database.Vui Lòng Cấu Hình Lại", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 XuLyCauHinh();
             }
-            else
+            else  //k==0
             {
-                if (chkLuuMK.Checked)
+                if (chkLuuMK.Checked)  //nếu có bật lưu mk thì mật mk xuống appconfig
                     cauhinh.SaveAccount(txtTenTK.Text, txtMK.Text);
 
-                this.Hide();
-                FrmMain frmMain = new FrmMain();
-                frmMain.ShowDialog();
-                this.Show();
+
+                //xử lý hiện from Main
+                if (Program.frmMain == null||Program.frmMain.IsDisposed)
+                {
+                   //lưu manv xuong app config
+                    Properties.Settings.Default.strMANV = txtTenTK.Text;
+                    Properties.Settings.Default.Save();
+                    Program.frmMain = new FrmMain(txtTenTK.Text.Trim());
+                }
+                Program.frmMain.Show();
+                Program.frmDangNhap.Hide();
             }
         }
 
         private void XuLyCauHinh()
         {
-            //đang nhập thành công check luu mk
-           
+            
+           //Xử lý bật from cấu hình
             this.Hide();
             FrmCauHinh frmCauHinh = new FrmCauHinh();
             frmCauHinh.ShowDialog();

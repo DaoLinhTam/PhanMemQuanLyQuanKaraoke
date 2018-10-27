@@ -42,5 +42,38 @@ namespace GUI.Properties {
                 return ((string)(this["QLKARAOKEConnectionString1"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=MINHTAM\\SQLEXPRESS;Initial Catalog=QLKARAOKE;Persist Security Info=Tr" +
+            "ue;User ID=sa;Password=sa2012")]
+        public string QLKARAOKEConnectionString2 {
+            get {
+                return ((string)(this["QLKARAOKEConnectionString2"]));
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string strMANV {
+            get {
+                return ((string)(this["strMANV"]));
+            }
+            set {
+                this["strMANV"] = value;
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=MINHTAM\\SQLEXPRESS;Initial Catalog=QLKakaoke;User ID=sa")]
+        public string QLKakaokeConnectionString {
+            get {
+                return ((string)(this["QLKakaokeConnectionString"]));
+            }
+        }
     }
 }

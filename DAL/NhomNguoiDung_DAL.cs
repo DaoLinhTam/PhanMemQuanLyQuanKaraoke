@@ -6,8 +6,10 @@ using System.Threading.Tasks;
 
 namespace DAL
 {
-   public class NhomNguoiDung_DAL:QLKaraokeDataContext
+   public class NhomNguoiDung_DAL:Database
     {
+
+       
         public bool themNhomNguoiDung(string manhom, string  tennhom)
         {
             try
@@ -15,8 +17,8 @@ namespace DAL
                 NHOMNGUOIDUNG nhomND = new NHOMNGUOIDUNG();
                 nhomND.MANHOM = manhom;
                 nhomND.TENNHOM = tennhom;
-                NHOMNGUOIDUNGs.InsertOnSubmit(nhomND);
-                this.SubmitChanges();
+                db.NHOMNGUOIDUNGs.InsertOnSubmit(nhomND);
+                db.SubmitChanges();
                 return true;
             }
             catch
@@ -30,11 +32,11 @@ namespace DAL
         {
             try
             {
-                NHOMNGUOIDUNG nhomND = (from nd in NHOMNGUOIDUNGs
+                NHOMNGUOIDUNG nhomND = (from nd in db.NHOMNGUOIDUNGs
                                        where nd.MANHOM == manhom
                                        select nd).First();
-                this.NHOMNGUOIDUNGs.DeleteOnSubmit(nhomND);
-                this.SubmitChanges();
+                db.NHOMNGUOIDUNGs.DeleteOnSubmit(nhomND);
+                db.SubmitChanges();
                 return true;
             }
             catch
@@ -47,12 +49,12 @@ namespace DAL
         {
             try
             {
-                NHOMNGUOIDUNG nhomND = (from nd in NHOMNGUOIDUNGs
+                NHOMNGUOIDUNG nhomND = (from nd in db.NHOMNGUOIDUNGs
                                         where nd.MANHOM == manhom
                                         select nd).First();
                 nhomND.TENNHOM = tennhom;
-                this.NHOMNGUOIDUNGs.DeleteOnSubmit(nhomND);
-                this.SubmitChanges();
+                db.NHOMNGUOIDUNGs.DeleteOnSubmit(nhomND);
+                db.SubmitChanges();
                 return true;
             }
             catch

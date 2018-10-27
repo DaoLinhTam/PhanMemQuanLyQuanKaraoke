@@ -73,6 +73,7 @@
     <Reference Include="DevExpress.XtraTreeMap.v16.1, Version=16.1.2.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Data.Linq" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -84,6 +85,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DanhSoTT.cs" />
+    <Compile Include="demo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="demo.Designer.cs">
+      <DependentUpon>demo.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmBaner.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -132,6 +139,18 @@
     <Compile Include="FrmKhachHang.Designer.cs">
       <DependentUpon>FrmKhachHang.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmKhachHangDS.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmKhachHangDS.Designer.cs">
+      <DependentUpon>FrmKhachHangDS.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmKhachHangThem.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmKhachHangThem.Designer.cs">
+      <DependentUpon>FrmKhachHangThem.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmMain.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -149,6 +168,12 @@
     </Compile>
     <Compile Include="FrmQLND.Designer.cs">
       <DependentUpon>FrmQLND.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmQLNhomND.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmQLNhomND.Designer.cs">
+      <DependentUpon>FrmQLNhomND.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmSuDungDichVu.cs">
       <SubType>Form</SubType>
@@ -176,10 +201,14 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="QuanLyKaraoke.Designer.cs">
+    <Compile Include="QLKaraoke.cs">
+      <DependentUpon>QLKaraoke.xsd</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="QLKaraoke.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>QuanLyKaraoke.xsd</DependentUpon>
+      <DependentUpon>QLKaraoke.xsd</DependentUpon>
     </Compile>
     <Compile Include="uscPhong.cs">
       <SubType>UserControl</SubType>
@@ -187,6 +216,28 @@
     <Compile Include="uscPhong.Designer.cs">
       <DependentUpon>uscPhong.cs</DependentUpon>
     </Compile>
+    <Compile Include="usctrRoomKaraoke.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="usctrRoomKaraoke.Designer.cs">
+      <DependentUpon>usctrRoomKaraoke.cs</DependentUpon>
+    </Compile>
+    <Compile Include="usctrRoomKaraokeShow.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="usctrRoomKaraokeShow.Designer.cs">
+      <DependentUpon>usctrRoomKaraokeShow.cs</DependentUpon>
+    </Compile>
+    <Compile Include="usctrThemXoaSua.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="usctrThemXoaSua.Designer.cs">
+      <DependentUpon>usctrThemXoaSua.cs</DependentUpon>
+    </Compile>
+    <Compile Include="XuLy.cs" />
+    <EmbeddedResource Include="demo.resx">
+      <DependentUpon>demo.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmBaner.resx">
       <DependentUpon>FrmBaner.cs</DependentUpon>
     </EmbeddedResource>
@@ -211,6 +262,12 @@
     <EmbeddedResource Include="FrmKhachHang.resx">
       <DependentUpon>FrmKhachHang.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FrmKhachHangDS.resx">
+      <DependentUpon>FrmKhachHangDS.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmKhachHangThem.resx">
+      <DependentUpon>FrmKhachHangThem.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmMain.resx">
       <DependentUpon>FrmMain.cs</DependentUpon>
     </EmbeddedResource>
@@ -219,6 +276,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmQLND.resx">
       <DependentUpon>FrmQLND.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmQLNhomND.resx">
+      <DependentUpon>FrmQLNhomND.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmSuDungDichVu.resx">
       <DependentUpon>FrmSuDungDichVu.cs</DependentUpon>
@@ -241,9 +301,19 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <EmbeddedResource Include="uscPhong.resx">
       <DependentUpon>uscPhong.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="usctrRoomKaraoke.resx">
+      <DependentUpon>usctrRoomKaraoke.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="usctrRoomKaraokeShow.resx">
+      <DependentUpon>usctrRoomKaraokeShow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="usctrThemXoaSua.resx">
+      <DependentUpon>usctrThemXoaSua.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="app.config" />
     <None Include="Properties\Settings.settings">
@@ -255,16 +325,16 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <None Include="QuanLyKaraoke.xsc">
-      <DependentUpon>QuanLyKaraoke.xsd</DependentUpon>
+    <None Include="QLKaraoke.xsc">
+      <DependentUpon>QLKaraoke.xsd</DependentUpon>
     </None>
-    <None Include="QuanLyKaraoke.xsd">
+    <None Include="QLKaraoke.xsd">
       <SubType>Designer</SubType>
       <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>QuanLyKaraoke.Designer.cs</LastGenOutput>
+      <LastGenOutput>QLKaraoke.Designer.cs</LastGenOutput>
     </None>
-    <None Include="QuanLyKaraoke.xss">
-      <DependentUpon>QuanLyKaraoke.xsd</DependentUpon>
+    <None Include="QLKaraoke.xss">
+      <DependentUpon>QLKaraoke.xsd</DependentUpon>
     </None>
   </ItemGroup>
   <ItemGroup>
@@ -285,16 +355,21 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\BUS\BUS.csproj">
-      <Project>{c42df0fc-865f-4f71-a06f-6564e8f293cf}</Project>
-      <Name>BUS</Name>
-    </ProjectReference>
     <ProjectReference Include="..\DAL\DAL.csproj">
       <Project>{ba529e1a-f853-47f2-86fc-f16a7b726867}</Project>
       <Name>DAL</Name>
     </ProjectReference>
+    <ProjectReference Include="..\DAL_DATASET\DAL_DATASET.csproj">
+      <Project>{4bf64377-eb4f-406a-9f26-5f0cf96bc914}</Project>
+      <Name>DAL_DATASET</Name>
+    </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="Images\icon_room_back.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\icon_room.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
        Other similar extension points exist, see Microsoft.Common.targets.
