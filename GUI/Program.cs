@@ -27,12 +27,12 @@ namespace GUI
             BonusSkins.Register();
             SkinManager.EnableFormSkins();
             UserLookAndFeel.Default.SetSkinStyle("DevExpress Style");
-            frmDangNhap = new FrmDangNhap();
-            Application.Run(frmDangNhap);
+           frmDangNhap = new FrmDangNhap();
+       Application.Run(frmDangNhap);
         
           
     
-            //Application.Run(new FrmSuDungDichVu());
+         //  Application.Run(new FrmPhieuNhapThietBi());
         }
 
    

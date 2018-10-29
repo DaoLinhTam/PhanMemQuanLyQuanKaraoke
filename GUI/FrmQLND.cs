@@ -15,11 +15,13 @@ namespace GUI
     public partial class FrmQLND : DevExpress.XtraEditors.XtraForm
     {
         NHANVIENTableAdapter nd = new NHANVIENTableAdapter();
+        String strConnect = DAL.ProjectSetting.ConnectionString;
         XuLy xl = new XuLy();
         bool stateThem = false; //stateThem=true là đang thêm,false đang sữa
         public FrmQLND()
         {
             InitializeComponent();
+            nd.Connection.ConnectionString = strConnect;
             SuKien();
             xl.XuLyGiaoDien_KhiLoad(btnThem, btnXoa, btnSua, btnHuy, btnLuu);
         }
@@ -43,19 +45,23 @@ namespace GUI
             this.Validate(); //nhaan gia tri
             this.nHANVIENBindingSource.EndEdit();  //ket thuc chinh sua
             this.tableAdapterManager.UpdateAll(this.qLKaraoke);  //cap nhat
-
             //xu lyGiaoDien
             xl.XuLyGiaoDien_KhiLuu(btnThem, btnXoa, btnSua, btnLuu, btnHuy);
         }
 
         void btnXoa_Click(object sender, EventArgs e)
         {
-            if (!KT_HopLeXoa())
-                return;       
-            //xử lý xóa
+            DialogResult t = xl.MessageBoxCanhBao("Bạn có muốn xóa người dùng này không?");
+            if (t == DialogResult.Yes)
+            {
+                if (!KT_HopLeXoa())
+                    return;
+                //xử lý xóa
                 nHANVIENBindingSource.RemoveCurrent();
                 xl.MessageBoxThongBao("Xóa Thành Công!");
                 btnLuu.PerformClick();
+            }
+            
         }
 
         //Kiểm Tra Hợp Lệ Để Xóa
@@ -112,6 +118,7 @@ namespace GUI
         
             //Xử lý giao diện
             stateThem = true;
+            dtpNgaySinh.Text = "";
              xl.XuLyGiaoDien_KhiThem(btnThem, btnXoa, btnSua, btnLuu, btnHuy);
 
         }
@@ -144,8 +151,6 @@ namespace GUI
             this.nHANVIENTableAdapter.Connection.ConnectionString = DAL.ProjectSetting.ConnectionString;
             this.nGUOIDUNGTableAdapter.Fill(this.qLKaraoke.NGUOIDUNG);
             this.nHANVIENTableAdapter.Fill(this.qLKaraoke.NHANVIEN);
-
-
             //đánh stt grid view
             new DanhSoTT(gvQLND);
             xl.TextBoxNhapSo(txtSDT);

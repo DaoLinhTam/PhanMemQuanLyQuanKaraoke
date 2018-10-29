@@ -82,7 +82,7 @@
             this.tableLayoutPanel8 = new System.Windows.Forms.TableLayoutPanel();
             this.simpleButton2 = new DevExpress.XtraEditors.SimpleButton();
             this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
-            this.label11 = new System.Windows.Forms.Label();
+            this.btnLamMoi = new DevExpress.XtraEditors.SimpleButton();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel4.SuspendLayout();
             this.tableLayoutPanel5.SuspendLayout();
@@ -616,7 +616,7 @@
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(46, 24);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Tầng :";
+            this.label1.Text = "Khu Vực";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // cboTang
@@ -635,10 +635,10 @@
             this.tableLayoutPanel8.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.11688F));
             this.tableLayoutPanel8.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 66.88312F));
             this.tableLayoutPanel8.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 63F));
-            this.tableLayoutPanel8.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 72F));
+            this.tableLayoutPanel8.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 82F));
             this.tableLayoutPanel8.Controls.Add(this.simpleButton2, 3, 0);
             this.tableLayoutPanel8.Controls.Add(this.simpleButton1, 2, 0);
-            this.tableLayoutPanel8.Controls.Add(this.label11, 0, 0);
+            this.tableLayoutPanel8.Controls.Add(this.btnLamMoi, 1, 0);
             this.tableLayoutPanel8.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel8.Location = new System.Drawing.Point(3, 3);
             this.tableLayoutPanel8.Name = "tableLayoutPanel8";
@@ -649,7 +649,7 @@
             // 
             // simpleButton2
             // 
-            this.simpleButton2.Location = new System.Drawing.Point(214, 3);
+            this.simpleButton2.Location = new System.Drawing.Point(204, 3);
             this.simpleButton2.Name = "simpleButton2";
             this.simpleButton2.Size = new System.Drawing.Size(61, 29);
             this.simpleButton2.TabIndex = 0;
@@ -657,22 +657,19 @@
             // 
             // simpleButton1
             // 
-            this.simpleButton1.Location = new System.Drawing.Point(151, 3);
+            this.simpleButton1.Location = new System.Drawing.Point(141, 3);
             this.simpleButton1.Name = "simpleButton1";
             this.simpleButton1.Size = new System.Drawing.Size(57, 29);
             this.simpleButton1.TabIndex = 0;
             this.simpleButton1.Text = "Gộp Phòng";
             // 
-            // label11
+            // btnLamMoi
             // 
-            this.label11.AutoSize = true;
-            this.label11.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label11.Location = new System.Drawing.Point(3, 0);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(43, 35);
-            this.label11.TabIndex = 1;
-            this.label11.Text = "Ngày  :";
-            this.label11.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.btnLamMoi.Location = new System.Drawing.Point(49, 3);
+            this.btnLamMoi.Name = "btnLamMoi";
+            this.btnLamMoi.Size = new System.Drawing.Size(57, 29);
+            this.btnLamMoi.TabIndex = 0;
+            this.btnLamMoi.Text = "Làm Mơi";
             // 
             // FrmSuDungDichVu
             // 
@@ -704,7 +701,6 @@
             this.tableLayoutPanel3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.cboTang.Properties)).EndInit();
             this.tableLayoutPanel8.ResumeLayout(false);
-            this.tableLayoutPanel8.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -764,7 +760,7 @@
         private System.Windows.Forms.Label label10;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn9;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn8;
-        private System.Windows.Forms.Label label11;
+        private DevExpress.XtraEditors.SimpleButton btnLamMoi;
 
 
 

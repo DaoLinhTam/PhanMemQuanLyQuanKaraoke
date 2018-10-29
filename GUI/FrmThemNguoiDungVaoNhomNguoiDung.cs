@@ -13,6 +13,7 @@ namespace GUI
 {
     public partial class FrmThemNguoiDungVaoNhomNguoiDung : DevExpress.XtraEditors.XtraForm
     {
+        String connect = DAL.ProjectSetting.ConnectionString;
         public FrmThemNguoiDungVaoNhomNguoiDung()
         {
             InitializeComponent();
@@ -30,6 +31,10 @@ namespace GUI
 
         private void FrmThemNguoiDungVaoNhomNguoiDung_Load(object sender, EventArgs e)
         {
+
+            //gán chuỗi kết 
+            this.nHOMNGUOIDUNGTableAdapter.Connection.ConnectionString = connect;
+            this.nHANVIENTableAdapter.Connection.ConnectionString = connect;
             // TODO: This line of code loads data into the 'qLKaraoke.NHOMNGUOIDUNG' table. You can move, or remove it, as needed.
             this.nHOMNGUOIDUNGTableAdapter.Fill(this.qLKaraoke.NHOMNGUOIDUNG);
             // TODO: This line of code loads data into the 'qLKaraoke.NHOMNGUOIDUNG' table. You can move, or remove it, as needed.

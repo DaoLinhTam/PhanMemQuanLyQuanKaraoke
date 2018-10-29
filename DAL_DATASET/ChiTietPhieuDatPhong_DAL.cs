@@ -15,5 +15,13 @@ namespace DAL_DATASET
         {
             return adapter.InsertQuery(MAPHIEUDH, MAPH);
         }
+
+        public bool XoaChiTiet_TheoMaDH(String MaPhieuDH)
+        {
+            int k = adapter.XoaChiTiet_TheoMaPhieuDH(MaPhieuDH);
+            if (k > 0) return true;
+            return false;
+
+        }
     }
 }

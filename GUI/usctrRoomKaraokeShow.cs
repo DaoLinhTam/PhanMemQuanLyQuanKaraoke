@@ -13,43 +13,76 @@ namespace GUI
     public partial class usctrRoomKaraokeShow : UserControl
     {
         Timer timer;
-        int stateMoPhong;
-        //--------------
+        bool stateMoPhong;
+        DateTime time;
 
-        public string TrangThai
+        int gio;
+        int giay;
+        int phut;
+
+        public int Gio
         {
-            get {return lblTime.Text; }
-            set { lblTime.Text = value; }
+            get { return gio; }
+            set { gio = value; }
+        }
+    
+
+        public int Phut
+        {
+            get { return phut; }
+            set { phut = value; }
+        }
+        
+
+        public int Giay
+        {
+            get { return giay; }
+            set { giay = value; }
         }
 
-        public string TenPhong
+        public usctrRoomKaraokeShow(int Gio, int Phut, int Giay, bool StateMoPhong)
+        {
+            this.Gio = Gio;
+            this.Phut = Phut;
+            this.Giay = Giay;
+            this.stateMoPhong = stateMoPhong;
+            XuLySuKienChayGio();
+            //gan laij
+            
+        }
+        public bool StateMoPhong
+        {
+            get { return stateMoPhong; }
+            set { stateMoPhong = value; }
+        }
+
+       
+        //--------------
+
+
+       
+     
+
+        public string MaPhong
         {
             get { return lblTenPhong.Text;}
             set{lblTenPhong.Text=value;}
         }
 
-        public bool Visiblel_lblTime
-        {
-            get { return lblTime.Visible; }
-            set { lblTime.Visible = value; }
-        }
 
-        public Color lblTime_Color
+        public void lblTime_ChangeProperties(string text,Color BackColor,bool visible)
         {
-            get { return lblTime.BackColor; }
-            set { lblTime.BackColor = value; }
+            lbltime.Text = text;
+            lbltime.BackColor = BackColor;
+            lbltime.Visible = visible;
         }
-     
-
         //--------------
         XuLy xl = new XuLy();
         public usctrRoomKaraokeShow()
         {
             InitializeComponent();
-            stateMoPhong=0;
+            stateMoPhong=false;
             SuKien();
-            
-
         }
 
         private void _Load()
@@ -72,7 +105,7 @@ namespace GUI
         void btnMoPhong_Click(object sender, EventArgs e)
         {
 
-            if (stateMoPhong == 1)
+            if (stateMoPhong == true)
             {
                 xl.MessageBoxThongBao("Phòng Đang Mở!");
                 return;
@@ -80,24 +113,27 @@ namespace GUI
            //xuly giao dien
               //đổi ảnh
 
-            lblTime.Text = "00:00";
-            lblTime.BackColor = Color.Red;
-            picbox.Image = Properties.Resources.icon_room;
+            lbltime.Text = "00:00";
+          //phong đã đc mở
+            XuLySuKienChayGio();
+
+
+        }
+
+        public void XuLySuKienChayGio()
+        {
+          
             //thời gian bắt đầu chạy
             timer = new Timer();
             timer.Interval = 1000;
             timer.Tick += timer_Tick;
             timer.Start();
             //showtime
-            lblTime.Visible = true;
-            stateMoPhong = 1;  //phong đã đc mở
-
-
+            lbltime.Visible = true;
+            stateMoPhong = true;  
         }
 
-        int Gio = 0;
-        int Phut = 0;
-        int Giay = 0;
+      
         void timer_Tick(object sender, EventArgs e)
         {
             Giay++;
@@ -105,7 +141,7 @@ namespace GUI
             {
                 Phut++;
                 Giay = 0;
-                lblTime.Text = CapNhatGio(Gio, Phut);
+                lbltime.Text = CapNhatGio(Gio, Phut);
                 if (Phut == 59)
                 {
                     Gio++;

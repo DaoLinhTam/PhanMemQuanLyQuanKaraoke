@@ -41,7 +41,7 @@
   <ItemGroup>
     <Compile Include="ChiTietPhieuDatPhong_DAL.cs" />
     <Compile Include="KhachHang_DAL.cs" />
-    <Compile Include="MatHang_DAL.cs" />
+    <Compile Include="PhanQuyen_DAL.cs" />
     <Compile Include="PhieuDatPhong_DAL.cs" />
     <Compile Include="Phong_DAL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

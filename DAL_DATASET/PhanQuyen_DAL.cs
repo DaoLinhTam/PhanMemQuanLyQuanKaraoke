@@ -8,13 +8,12 @@ using System.Threading.Tasks;
 
 namespace DAL_DATASET
 {
-   public class MatHang_DAL
+   public class PhanQuyen_DAL
     {
-       MATHANGTableAdapter adapter = new MATHANGTableAdapter();
-       public DataTable getData()
+       PHANQUYENTableAdapter adapter=new PHANQUYENTableAdapter();
+       public DataTable getData_TheoMaNhom(String MANHOM)
        {
-          return adapter.GetData();
+           return adapter.GetData_TheoMaNhom(MANHOM);
        }
-
     }
 }

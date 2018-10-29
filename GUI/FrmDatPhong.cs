@@ -21,6 +21,12 @@ namespace GUI
         XuLy xl = new XuLy();
         KH kh;
 
+
+
+        //-------------
+        int stateThemXoaSua = 0;//1 là thêm  2//sua  3//xoa
+        string strNhanVien = Properties.Settings.Default.strMANV;  //để biết nhân viên thực hiệ
+        
         //--------------
         DataTable dtDSPhieuDatPhong;
         
@@ -51,11 +57,12 @@ namespace GUI
         private void BiddingData()
         {
 
-            //txtMaDat.Text = gvPhieuDatPH.GetFocusedRowCellValue("MAPHIEUDH").ToString();
-            //txtTenKhach.Text = gvPhieuDatPH.GetFocusedRowCellValue("TENKH").ToString();
-            //dtpNgayDat.Value = DateTime.Parse(gvPhieuDatPH.GetFocusedRowCellValue("NGAYDAT").ToString());
-            //dtpNgayVao.Value = DateTime.Parse(gvPhieuDatPH.GetFocusedRowCellValue("NGAYVAO").ToString());
-            //dtpGioVao.Text = gvPhieuDatPH.GetFocusedRowCellValue("GIOVAO").ToString();
+            txtMaDat.Text = gvPhieuDatPH.GetFocusedRowCellValue("MAPHIEUDH").ToString();
+            txtTenKhach.Text = gvPhieuDatPH.GetFocusedRowCellValue("TENKH").ToString();
+            txtPhong.Text = gvPhieuDatPH.GetFocusedRowCellValue("MAPH").ToString();
+            dtpNgayDat.Value = DateTime.Parse(gvPhieuDatPH.GetFocusedRowCellValue("NGAYDAT").ToString());
+            dtpNgayVao.Value = DateTime.Parse(gvPhieuDatPH.GetFocusedRowCellValue("NGAYVAO").ToString());
+            dtpGioVao.Text = gvPhieuDatPH.GetFocusedRowCellValue("GIOVAO").ToString();
             
             
             
@@ -106,22 +113,49 @@ namespace GUI
                 xl.MessageBoxThongBaoEror("Ngày Vào Phải  Lớn Hơn Ngày Đặt ");
                 return false;
             }
+            if (dtpNgayDat.Value.Date <= dtpNgayVao.Value.Date && dtpGioVao.Value.Hour < DateTime.Now.Hour)
+            {
+                xl.MessageBoxThongBaoEror("Giờ Vào Phải  Lớn Giờ Hiện Tại ");
+                return false;
+            }
             return true;
                
         }
 
         bool usctrTXS_sua()
         {
+            stateThemXoaSua = 2;
+            BiddingData();
             return true;
         }
 
         bool usctrTXS_xoa()
         {
-            return true;
+           //xử lý xóa
+
+
+            int GioVao =int.Parse( gvPhieuDatPH.GetFocusedRowCellValue("GIOVAO").ToString().Substring(0, 2));
+            DateTime NgayVao = DateTime.Parse(gvPhieuDatPH.GetFocusedRowCellValue("NGAYVAO").ToString());
+            string maphieudh = gvPhieuDatPH.GetFocusedRowCellValue("MAPHIEUDH").ToString();
+            //nếu ngày vào lơn hơn ngày hiện tại
+            if (NgayVao.Day > DateTime.Now.Date.Day || (NgayVao.Day == DateTime.Now.Date.Day) && GioVao >= DateTime.Now.Hour)
+            {
+                xl.MessageBoxThongBaoEror("Không Thể Xóa Phiếu Đặt Bây Giờ");
+                return false;
+            }
+            //xóa chit chitiet có mã phiếu này
+                ct.XoaChiTiet_TheoMaDH(maphieudh);
+                //xóa phiếu này
+                phieudh.Xoa(txtMaDat.Text);  
+                xl.MessageBoxThongBao("Xóa Thành Công");
+                Load_GVPhieuDatPhong();
+                return true;  
         }
 
         bool usctrTXS_them()
         {
+
+            stateThemXoaSua = 1;
             string matop=phieudh.getTopByMa();
             txtMaDat.Text = xl.AutoID_PhieuDatPhong("PH", matop);
             //reset
@@ -132,34 +166,18 @@ namespace GUI
         }
         bool usctrTXS_luu()
         {
-            if (!FullDaTa())
-             {
-                return false;
-             }
-            else
-            {
-                //chek phòng trống //đặt sau phòng khác
-                bool check=phieudh.CheckPhongTrong(txtPhong.Text,dtpNgayVao.Value.ToShortDateString(),int.Parse(dtpGioVao.Text.Substring(0,2)));
-                if (!check)
-                {
-                    xl.MessageBoxThongBaoEror("Phòng đã có này đã có người đặt trước");
-                    return false;
-                }
-                else  //đặt trước phòng khác
-                {
-                    check = phieudh.CheckPhongTrong(txtPhong.Text, dtpNgayVao.Value.ToShortDateString(),23);
-                    if (!check)
-                    {
-                        DialogResult dialog = xl.MessageBoxCanhBao("Phòng Đã Người Đặt Sau Đó Vui Lòng Cân Nhắc Thời Gian! \n\n Vẫn Muốn Thêm ?");
-                        if (dialog != DialogResult.OK)
-                        {
-                            return false;
-                        }
-                    }
-                }
-                string strMANV = Properties.Settings.Default.strMANV;
 
-                int k = phieudh.Them(txtMaDat.Text, kh.Makh, strMANV, dtpNgayDat.Value, dtpNgayVao.Value, dtpGioVao.Value.ToString("HH:mm"));
+
+            if (!FullDaTa())
+            {
+                return false;
+            }
+
+            if (stateThemXoaSua == 1)
+            {
+                if (!CheckPhong())
+                    return false; 
+                int k = phieudh.Them(txtMaDat.Text, kh.Makh, strNhanVien, dtpNgayDat.Value, dtpNgayVao.Value, dtpGioVao.Value.ToString("HH:mm"));
                 k = ct.Them(txtMaDat.Text, txtPhong.Text);
                 if (k > 0)
                 {
@@ -168,7 +186,6 @@ namespace GUI
                     //gọi lại sự kiện thay đôi khi ngayvao
                     XuLySuKienNgayVao();
                     return true;
-
                 }
                 else
                 {
@@ -176,9 +193,41 @@ namespace GUI
                     return true;
                 }
 
+               
             }
+
+            if (stateThemXoaSua == 2)
+            {
+                //  int K = phieudh.Sua(kh.Makh, strNhanVien, dtpNgayDat.Value.ToShortDateString(), dtpNgayVao.Value.ToShortDateString(), null, txtPhong.Text);
+            }
+            return true;
         }
 
+
+        private bool CheckPhong()
+        {
+            //chek phòng trống //đặt sau phòng khác
+            int GioVao = phieudh.Lay_GioVaoCuaPhong(dtpNgayVao.Value.ToShortDateString(), txtPhong.Text);
+            if (GioVao !=-1)
+            {
+                int k = GioVao - dtpGioVao.Value.Hour;
+          
+                if (k<=0)
+                {
+                    xl.MessageBoxThongBaoEror("Phòng đã có này đã có người đặt trước");
+                    return false;
+                }
+                else
+                {
+                    DialogResult result = xl.MessageBoxCanhBao("Sau "+k+ " Giờ Nữa Khách Đặt Phòng Này Sẽ Đến Nhận Phòng.Bạn vẫn Muốn Mở Phòng ?");
+                    if (result == DialogResult.Yes)
+                        return true;
+                    else return false;
+                }
+            }
+            return true;
+                      
+        }
         //--------------------------------------------------------------------
 
         void btnMoDSKH_Click(object sender, EventArgs e)
@@ -218,7 +267,7 @@ namespace GUI
 
         private void dtpNgayVao_ValueChanged(object sender, EventArgs e)
         {
-
+           
             XuLySuKienNgayVao();
         }
 
@@ -232,8 +281,8 @@ namespace GUI
                 {
                     string maph = ((usctrRoomKaraoke)ctr).MaPhong;
                     if (phieudh.getDSChiTietPhieuDP(ngayvao).Contains(maph))  //nếu không này k có đặt
-                        ((usctrRoomKaraoke)ctr).Image = Properties.Resources.icon_room_back;
-                    else ((usctrRoomKaraoke)ctr).Image = Properties.Resources.icon_room;
+                        ((usctrRoomKaraoke)ctr).Image = Properties.Resources.icon_room;
+                    else ((usctrRoomKaraoke)ctr).Image = Properties.Resources.icon_room_back;
                     
 
                 }

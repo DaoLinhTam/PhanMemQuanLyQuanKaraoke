@@ -81,5 +81,16 @@ namespace DAL.Properties {
                 return ((string)(this["QLKARAOKEConnectionString"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=MINHTAM\\SQLEXPRESS;Initial Catalog=QLKakaoke;User ID=sa;Password=sa20" +
+            "12")]
+        public string QLKakaokeConnectionString {
+            get {
+                return ((string)(this["QLKakaokeConnectionString"]));
+            }
+        }
     }
 }

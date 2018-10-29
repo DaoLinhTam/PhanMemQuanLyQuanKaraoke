@@ -35,6 +35,7 @@
             System.Windows.Forms.Label nGAYSINHLabel;
             System.Windows.Forms.Label dIACHILabel;
             System.Windows.Forms.Label qUEQUANLabel;
+            DevExpress.XtraGrid.GridLevelNode gridLevelNode1 = new DevExpress.XtraGrid.GridLevelNode();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmQLND));
             this.qLKaraoke = new GUI.QLKaraoke();
             this.nHANVIENBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -46,9 +47,9 @@
             this.txtMaNV = new System.Windows.Forms.TextBox();
             this.txtTenNV = new System.Windows.Forms.TextBox();
             this.txtSDT = new System.Windows.Forms.TextBox();
-            this.dtpNgaySinh = new System.Windows.Forms.DateTimePicker();
             this.txtDiaChi = new System.Windows.Forms.TextBox();
             this.txtQueQuan = new System.Windows.Forms.TextBox();
+            this.dtpNgaySinh = new System.Windows.Forms.DateTimePicker();
             this.nHANVIENGridControl = new DevExpress.XtraGrid.GridControl();
             this.gvQLND = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colMANV = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -166,10 +167,12 @@
             // tableAdapterManager
             // 
             this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
+            this.tableAdapterManager.MANHINHTableAdapter = null;
             this.tableAdapterManager.NGUOIDUNG_NHOMNGUOIDUNGTableAdapter = null;
             this.tableAdapterManager.NGUOIDUNGTableAdapter = null;
             this.tableAdapterManager.NHANVIENTableAdapter = this.nHANVIENTableAdapter;
             this.tableAdapterManager.NHOMNGUOIDUNGTableAdapter = null;
+            this.tableAdapterManager.PHANQUYENTableAdapter = null;
             this.tableAdapterManager.UpdateOrder = GUI.QLKaraokeTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
             // 
             // tableLayoutPanel1
@@ -216,9 +219,9 @@
             this.tblThongTinNV.Controls.Add(this.txtMaNV, 1, 0);
             this.tblThongTinNV.Controls.Add(this.txtTenNV, 1, 1);
             this.tblThongTinNV.Controls.Add(this.txtSDT, 3, 0);
-            this.tblThongTinNV.Controls.Add(this.dtpNgaySinh, 3, 1);
             this.tblThongTinNV.Controls.Add(this.txtDiaChi, 5, 0);
             this.tblThongTinNV.Controls.Add(this.txtQueQuan, 5, 1);
+            this.tblThongTinNV.Controls.Add(this.dtpNgaySinh, 3, 1);
             this.tblThongTinNV.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tblThongTinNV.Location = new System.Drawing.Point(3, 17);
             this.tblThongTinNV.Name = "tblThongTinNV";
@@ -256,17 +259,6 @@
             this.txtSDT.Name = "txtSDT";
             this.txtSDT.Size = new System.Drawing.Size(218, 21);
             this.txtSDT.TabIndex = 19;
-            // 
-            // dtpNgaySinh
-            // 
-            this.dtpNgaySinh.CustomFormat = "dd/MM/yyyy";
-            this.dtpNgaySinh.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.nHANVIENBindingSource, "NGAYSINH", true));
-            this.dtpNgaySinh.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dtpNgaySinh.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpNgaySinh.Location = new System.Drawing.Point(451, 42);
-            this.dtpNgaySinh.Name = "dtpNgaySinh";
-            this.dtpNgaySinh.Size = new System.Drawing.Size(218, 21);
-            this.dtpNgaySinh.TabIndex = 21;
             // 
             // txtDiaChi
             // 
@@ -350,10 +342,23 @@
             this.txtQueQuan.Size = new System.Drawing.Size(219, 21);
             this.txtQueQuan.TabIndex = 25;
             // 
+            // dtpNgaySinh
+            // 
+            this.dtpNgaySinh.CustomFormat = "dd/MM/yyyy";
+            this.dtpNgaySinh.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.nHANVIENBindingSource, "NGAYSINH", true));
+            this.dtpNgaySinh.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtpNgaySinh.Location = new System.Drawing.Point(451, 42);
+            this.dtpNgaySinh.Name = "dtpNgaySinh";
+            this.dtpNgaySinh.Size = new System.Drawing.Size(200, 21);
+            this.dtpNgaySinh.TabIndex = 26;
+            // 
             // nHANVIENGridControl
             // 
             this.nHANVIENGridControl.DataSource = this.nHANVIENBindingSource;
             this.nHANVIENGridControl.Dock = System.Windows.Forms.DockStyle.Fill;
+            gridLevelNode1.RelationName = "Level1";
+            this.nHANVIENGridControl.LevelTree.Nodes.AddRange(new DevExpress.XtraGrid.GridLevelNode[] {
+            gridLevelNode1});
             this.nHANVIENGridControl.Location = new System.Drawing.Point(3, 108);
             this.nHANVIENGridControl.MainView = this.gvQLND;
             this.nHANVIENGridControl.Name = "nHANVIENGridControl";
@@ -389,6 +394,7 @@
             // 
             // colTENNV
             // 
+            this.colTENNV.Caption = "Tên Nhân Viên";
             this.colTENNV.FieldName = "TENNV";
             this.colTENNV.Name = "colTENNV";
             this.colTENNV.Visible = true;
@@ -404,6 +410,7 @@
             // 
             // colNGAYSINH
             // 
+            this.colNGAYSINH.Caption = "Ngày Sinh";
             this.colNGAYSINH.FieldName = "NGAYSINH";
             this.colNGAYSINH.Name = "colNGAYSINH";
             this.colNGAYSINH.Visible = true;
@@ -411,6 +418,7 @@
             // 
             // colDIACHI
             // 
+            this.colDIACHI.Caption = "Địa Chỉ";
             this.colDIACHI.FieldName = "DIACHI";
             this.colDIACHI.Name = "colDIACHI";
             this.colDIACHI.Visible = true;
@@ -418,6 +426,7 @@
             // 
             // colQUEQUAN
             // 
+            this.colQUEQUAN.Caption = "Quê Quán";
             this.colQUEQUAN.FieldName = "QUEQUAN";
             this.colQUEQUAN.Name = "colQUEQUAN";
             this.colQUEQUAN.Visible = true;
@@ -538,7 +547,6 @@
         private System.Windows.Forms.TextBox txtMaNV;
         private System.Windows.Forms.TextBox txtTenNV;
         private System.Windows.Forms.TextBox txtSDT;
-        private System.Windows.Forms.DateTimePicker dtpNgaySinh;
         private System.Windows.Forms.TextBox txtDiaChi;
         private System.Windows.Forms.TextBox txtQueQuan;
         private System.Windows.Forms.GroupBox groupBox1;
@@ -558,6 +566,7 @@
         private DevExpress.XtraGrid.Columns.GridColumn colQUEQUAN;
         private System.Windows.Forms.BindingSource NguoiDungBindingSource;
         private QLKaraokeTableAdapters.NGUOIDUNGTableAdapter nGUOIDUNGTableAdapter;
+        private System.Windows.Forms.DateTimePicker dtpNgaySinh;
 
 
 

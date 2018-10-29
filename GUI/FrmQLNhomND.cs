@@ -19,6 +19,7 @@ namespace GUI
         public FrmQLNhomND()
         {
             InitializeComponent();
+            nhomnd.Connection.ConnectionString = DAL.ProjectSetting.ConnectionString;
            
         }
 
@@ -89,22 +90,27 @@ namespace GUI
 
         private void btnXoa_Click(object sender, EventArgs e)
         {
-            //kiểm tra khóa ngoại
-             string filter=" MANHOM ='" + txtMaNhom.Text + "'";
-             int k = xl.FilterBiddingSource(NguoiDungNhomNguoiDung, filter);
-             if (k > 0)
-             {
-                 xl.MessageBoxThongBaoEror("Không Thể Xóa Nhóm Người Dùng " + txtTenNhomND.Text);
-                 return;
-             }
-             else {
-                 try
-                 {
-                     nHOMNGUOIDUNGBindingSource.RemoveCurrent();
-                     UpdateALL();
-                 }
-                 catch { };
-             }
+            DialogResult t = xl.MessageBoxCanhBao("Bạn có muốn xóa nhóm người dùng này không?");
+            if (t == DialogResult.Yes)
+            {
+                //kiểm tra khóa ngoại
+                string filter = " MANHOM ='" + txtMaNhom.Text + "'";
+                int k = xl.FilterBiddingSource(NguoiDungNhomNguoiDung, filter);
+                if (k > 0)
+                {
+                    xl.MessageBoxThongBaoEror("Không Thể Xóa Nhóm Người Dùng " + txtTenNhomND.Text);
+                    return;
+                }
+                else
+                {
+                    try
+                    {
+                        nHOMNGUOIDUNGBindingSource.RemoveCurrent();
+                        UpdateALL();
+                    }
+                    catch { };
+                }
+            }
             
         }
 

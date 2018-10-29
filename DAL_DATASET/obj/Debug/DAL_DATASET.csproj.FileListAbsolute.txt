@@ -3,4 +3,3 @@ F:\PhanMemQuanLyQuanKaraoke\DAL_DATASET\bin\Debug\DAL_DATASET.dll
 F:\PhanMemQuanLyQuanKaraoke\DAL_DATASET\bin\Debug\DAL_DATASET.pdb
 F:\PhanMemQuanLyQuanKaraoke\DAL_DATASET\obj\Debug\DAL_DATASET.dll
 F:\PhanMemQuanLyQuanKaraoke\DAL_DATASET\obj\Debug\DAL_DATASET.pdb
-F:\PhanMemQuanLyQuanKaraoke\DAL_DATASET\obj\Debug\DAL_DATASET.csprojResolveAssemblyReference.cache

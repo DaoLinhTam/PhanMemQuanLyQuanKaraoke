@@ -32,7 +32,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(usctrRoomKaraokeShow));
             this.picbox = new System.Windows.Forms.PictureBox();
             this.lblTenPhong = new System.Windows.Forms.Label();
-            this.lblTime = new System.Windows.Forms.Label();
+            this.lbltime = new System.Windows.Forms.Label();
             this.contextMenuStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.btnMoPhong = new System.Windows.Forms.ToolStripMenuItem();
             this.mởPhòngĐặtToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -60,18 +60,18 @@
             this.lblTenPhong.Text = "102";
             this.lblTenPhong.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // lblTime
+            // lbltime
             // 
-            this.lblTime.BackColor = System.Drawing.Color.OrangeRed;
-            this.lblTime.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTime.ForeColor = System.Drawing.Color.White;
-            this.lblTime.Location = new System.Drawing.Point(19, 0);
-            this.lblTime.Name = "lblTime";
-            this.lblTime.Size = new System.Drawing.Size(53, 23);
-            this.lblTime.TabIndex = 2;
-            this.lblTime.Text = "00:00";
-            this.lblTime.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.lblTime.Visible = false;
+            this.lbltime.BackColor = System.Drawing.Color.OrangeRed;
+            this.lbltime.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbltime.ForeColor = System.Drawing.Color.White;
+            this.lbltime.Location = new System.Drawing.Point(19, 0);
+            this.lbltime.Name = "lbltime";
+            this.lbltime.Size = new System.Drawing.Size(53, 23);
+            this.lbltime.TabIndex = 2;
+            this.lbltime.Text = "00:00";
+            this.lbltime.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lbltime.Visible = false;
             // 
             // contextMenuStrip
             // 
@@ -79,19 +79,19 @@
             this.btnMoPhong,
             this.mởPhòngĐặtToolStripMenuItem});
             this.contextMenuStrip.Name = "contextMenuStrip";
-            this.contextMenuStrip.Size = new System.Drawing.Size(153, 70);
+            this.contextMenuStrip.Size = new System.Drawing.Size(152, 48);
             // 
             // btnMoPhong
             // 
             this.btnMoPhong.Image = ((System.Drawing.Image)(resources.GetObject("btnMoPhong.Image")));
             this.btnMoPhong.Name = "btnMoPhong";
-            this.btnMoPhong.Size = new System.Drawing.Size(152, 22);
+            this.btnMoPhong.Size = new System.Drawing.Size(151, 22);
             this.btnMoPhong.Text = "Mở Phòng";
             // 
             // mởPhòngĐặtToolStripMenuItem
             // 
             this.mởPhòngĐặtToolStripMenuItem.Name = "mởPhòngĐặtToolStripMenuItem";
-            this.mởPhòngĐặtToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.mởPhòngĐặtToolStripMenuItem.Size = new System.Drawing.Size(151, 22);
             this.mởPhòngĐặtToolStripMenuItem.Text = "Mở Phòng Đặt";
             // 
             // usctrRoomKaraokeShow
@@ -100,7 +100,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Transparent;
             this.ContextMenuStrip = this.contextMenuStrip;
-            this.Controls.Add(this.lblTime);
+            this.Controls.Add(this.lbltime);
             this.Controls.Add(this.lblTenPhong);
             this.Controls.Add(this.picbox);
             this.Name = "usctrRoomKaraokeShow";
@@ -115,7 +115,7 @@
 
         private System.Windows.Forms.PictureBox picbox;
         private System.Windows.Forms.Label lblTenPhong;
-        private System.Windows.Forms.Label lblTime;
+        private System.Windows.Forms.Label lbltime;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip;
         private System.Windows.Forms.ToolStripMenuItem btnMoPhong;
         private System.Windows.Forms.ToolStripMenuItem mởPhòngĐặtToolStripMenuItem;

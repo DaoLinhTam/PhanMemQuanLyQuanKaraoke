@@ -9,6 +9,8 @@ using DAL;
 
 
 using System.Windows.Forms;
+using DevExpress.XtraTabbedMdi;
+using DevExpress.XtraTab.ViewInfo;
 
 
 namespace GUI
@@ -45,13 +47,33 @@ namespace GUI
             btnThemND.ItemClick += btnThemND_ItemClick;
             //from danh mục chính
             btnKhachHang.ItemClick += btnKhachHang_ItemClick;
+            btnDMMatHang.ItemClick += btnDMMatHang_ItemClick;
+            btnDMThietBi.ItemClick += btnDMThietBi_ItemClick;
+            btnDanhMucPhong.ItemClick += btnDanhMucPhong_ItemClick;
 
 
             //danh mục chính
 
             btnDatPhong.ItemClick += btnDatPhong_ItemClick;
+            
         }
 
+        void btnDanhMucPhong_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            ShowFrom(new FrmDMPhong());
+        }
+
+        void btnDMThietBi_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            ShowFrom(new FrmDMThietBi());
+        }
+
+        void btnDMMatHang_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            ShowFrom(new FrmDanhMucMH());
+        }
+
+       
         void btnQLNhomND_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
            ShowFrom(new FrmQLNhomND());
@@ -89,7 +111,7 @@ namespace GUI
 
         void FrmMain_Load(object sender, EventArgs e)
         {
-            FrmBaner frm = new FrmBaner();
+            FrmSuDungDichVu frm = new FrmSuDungDichVu();
             ShowFrom(frm);
             //Load Tên Người Dùng
             load_TenND(TenNguoiDung);

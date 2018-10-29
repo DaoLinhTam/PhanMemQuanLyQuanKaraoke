@@ -8,6 +8,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using DevExpress.XtraEditors;
+using DAL;
 using DAL_DATASET;
 
 namespace GUI
@@ -20,21 +21,56 @@ namespace GUI
 
         //---------------------------------
         DataTable dtDSPhong;
+        List<TrangThaiPhong> lstTrangThai;//đẻ trả trạng thái phòng khi reset
         public FrmSuDungDichVu()
         {
             InitializeComponent();
             SuKien();
+            lstTrangThai =new  List<TrangThaiPhong>();
         }
  //DANH SÁCH CÁC SỰ KIỆN
         private void SuKien()
         {
             this.Load += FrmSuDungDichVu_Load;
             this.cboTang.SelectedIndexChanged += cboTang_SelectedIndexChanged;
+            this.FormClosing += FrmSuDungDichVu_FormClosing;
+            this.btnLamMoi.Click += btnLamMoi_Click;
            
         }
+//XỬ LÝ SỰ KIỆN LAM MỚI
+        void btnLamMoi_Click(object sender, EventArgs e)
+        {
+           //LƯU CONTROL CŨ
+            foreach (Control ctr in fplDSPhong.Controls)
+            {
+                if (ctr is usctrRoomKaraokeShow)
+                {
+                    usctrRoomKaraokeShow us=(usctrRoomKaraokeShow)ctr;
+                    if (((usctrRoomKaraokeShow)ctr).StateMoPhong)  //Phòng đang mở
+                    {
+                        lstTrangThai.Add(new TrangThaiPhong(us.MaPhong,us.Gio,us.Phut,us.Giay));
+                    }
+                
+                
+                }
+            }
+            fplDSPhong.Controls.Clear();//clear heest control
+            dtDSPhong = ph.getData();
+            add_DanhSachPhong(dtDSPhong);
+
+
+        }
+//------------------------------------------------------
+//XỬ LÝ ĐÓNG FORM
+        void FrmSuDungDichVu_FormClosing(object sender, FormClosingEventArgs e)
+        {
+          //  e.Cancel = true;
+        }
+//--------------------------------------
 
    
 
+//XỬ CHỌN KHU VỰC PHÒNG
         void cboTang_SelectedIndexChanged(object sender, EventArgs e)
         {         
 
@@ -46,7 +82,7 @@ namespace GUI
                 lstTang.Add(r["MAPH"].ToString());
             foreach (usctrRoomKaraokeShow us in fplDSPhong.Controls)
             {
-                if (lstTang.Contains(us.TenPhong))
+                if (lstTang.Contains(us.MaPhong))
                     us.Visible = true;
                 else us.Visible = false;
             }
@@ -99,24 +135,46 @@ namespace GUI
             fplDSPhong.Controls.Clear();          
             foreach (DataRow r in dtDSPhong.Rows)
             {
-                string TenPhong = r["MAPH"].ToString();
-                usctrRoomKaraokeShow us = new usctrRoomKaraokeShow();
-                us.TenPhong = TenPhong;
-                //phòng đc đặt
-                if (phieudh.CheckPhongDat_ByMa(dt.ToShortDateString(), TenPhong))
+               
+
+                string MaPhong = r["MAPH"].ToString();
+                usctrRoomKaraokeShow us ;
+               TrangThaiPhong trangthai=null;
+               
+                 int k = lstTrangThai.Select(t=>t.MaPhong==MaPhong).ToList().Count();
+                if(k>0)
                 {
-                    us.TrangThai = phieudh.getGioPhongDat(TenPhong, dt.ToShortDateString());
-                    us.Visiblel_lblTime = true;
-                    us.lblTime_Color = Color.Blue;
-                }else
-                {
-                    us.TrangThai = "00:00";
-                    us.Visiblel_lblTime = false;
-                    us.lblTime_Color = Color.Red;
+                  trangthai=lstTrangThai.Where(t => t.MaPhong == MaPhong).ToList()[0];
                 }
+
+
+             if (trangthai != null)
+             {
+
+                 us = new usctrRoomKaraokeShow(trangthai.Gio, trangthai.Phut, trangthai.Giay, true);
+                
+
+             }
+             else
+             {
+                 us = new usctrRoomKaraokeShow();
+                 us.MaPhong = MaPhong;
+                 //phòng đc đặt
+                 if (phieudh.CheckPhongDat_ByMa(dt.ToShortDateString(), MaPhong))
+                 {
+                     us.lblTime_ChangeProperties(phieudh.getGioPhongDat(MaPhong, dt.ToShortDateString()), Color.Blue, true);
+                 }
+                 else
+                 {
+                     us.lblTime_ChangeProperties("00:00", Color.Red, false);
+                   
+                 }
+             }
                 fplDSPhong.Controls.Add(us);
+                
             }
         }
+
 //---------------------------------------------------------
 
 

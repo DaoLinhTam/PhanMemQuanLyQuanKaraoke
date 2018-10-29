@@ -53,12 +53,15 @@
       <HintPath>..\dll\AutoResize_Controls.dll</HintPath>
     </Reference>
     <Reference Include="DevExpress.BonusSkins.v16.1" />
+    <Reference Include="DevExpress.CodeParser.v16.1, Version=16.1.2.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.Data.v16.1" />
+    <Reference Include="DevExpress.DataAccess.v16.1, Version=16.1.2.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.Printing.v16.1.Core, Version=16.1.2.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.SpellChecker.v16.1.Core, Version=16.1.2.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.TreeMap.v16.1.Core, Version=16.1.2.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.Utils.v16.1" />
     <Reference Include="DevExpress.Sparkline.v16.1.Core" />
+    <Reference Include="DevExpress.Xpo.v16.1, Version=16.1.2.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.XtraBars.v16.1, Version=16.1.2.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraEditors.v16.1" />
     <Reference Include="DevExpress.XtraGrid.v16.1, Version=16.1.2.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
@@ -72,8 +75,12 @@
     <Reference Include="DevExpress.XtraTreeList.v16.1, Version=16.1.2.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraTreeMap.v16.1, Version=16.1.2.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Data.Entity" />
     <Reference Include="System.Data.Linq" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -127,6 +134,12 @@
     <Compile Include="FrmDMPhong.Designer.cs">
       <DependentUpon>FrmDMPhong.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmDMThietBi.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmDMThietBi.Designer.cs">
+      <DependentUpon>FrmDMThietBi.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmDoiMatkhau.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -157,11 +170,29 @@
     <Compile Include="FrmMain.Designer.cs">
       <DependentUpon>FrmMain.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmNhapMatHang.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmNhapMatHang.Designer.cs">
+      <DependentUpon>FrmNhapMatHang.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmNhapThietBi.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmNhapThietBi.Designer.cs">
+      <DependentUpon>FrmNhapThietBi.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmPhanQuyen.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FrmPhanQuyen.Designer.cs">
       <DependentUpon>FrmPhanQuyen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmPhieuNhapThietBi.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmPhieuNhapThietBi.Designer.cs">
+      <DependentUpon>FrmPhieuNhapThietBi.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmQLND.cs">
       <SubType>Form</SubType>
@@ -210,6 +241,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>QLKaraoke.xsd</DependentUpon>
     </Compile>
+    <Compile Include="TrangThaiPhong.cs" />
     <Compile Include="uscPhong.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -256,6 +288,9 @@
     <EmbeddedResource Include="FrmDMPhong.resx">
       <DependentUpon>FrmDMPhong.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FrmDMThietBi.resx">
+      <DependentUpon>FrmDMThietBi.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmDoiMatkhau.resx">
       <DependentUpon>FrmDoiMatkhau.cs</DependentUpon>
     </EmbeddedResource>
@@ -271,8 +306,14 @@
     <EmbeddedResource Include="FrmMain.resx">
       <DependentUpon>FrmMain.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FrmNhapThietBi.resx">
+      <DependentUpon>FrmNhapThietBi.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmPhanQuyen.resx">
       <DependentUpon>FrmPhanQuyen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmPhieuNhapThietBi.resx">
+      <DependentUpon>FrmPhieuNhapThietBi.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmQLND.resx">
       <DependentUpon>FrmQLND.cs</DependentUpon>

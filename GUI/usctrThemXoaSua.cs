@@ -52,8 +52,7 @@ namespace GUI
         {
             try
             {
-                if(xoa())
-                xl.XuLyGiaoDien_KhiXoa(btnThem, btnXoa, btnSua, btnLuu, btnHuy);
+                xoa();
 
             }
             catch (Exception ex) { };

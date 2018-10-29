@@ -20,24 +20,24 @@ namespace DAL
           
         }
 
-        public bool themNguoiDung(string tendn,string mk,string manv)
-        {
-            try
-            {
-                NGUOIDUNG nd = new NGUOIDUNG();
-                nd.TENDANGNHAP = tendn;
-                nd.MATKHAU = mk;
-                nd.MANV = manv;
-                nd.TINHTRANG = true;
-                db.NGUOIDUNGs.InsertOnSubmit(nd);
-                db.SubmitChanges();
-                return true;
-            }
-            catch
-            {
-                return false;
-            }
-        }
+        //public bool themNguoiDung(string tendn,string mk,string manv)
+        //{
+        //    try
+        //    {
+        //        NGUOIDUNG nd = new NGUOIDUNG();
+        //        nd.TENDANGNHAP = tendn;
+        //        nd.MATKHAU = mk;
+        //        nd.MANV = manv;
+        //        nd.TINHTRANG = true;
+        //        db.NGUOIDUNGs.InsertOnSubmit(nd);
+        //        db.SubmitChanges();
+        //        return true;
+        //    }
+        //    catch
+        //    {
+        //        return false;
+        //    }
+        //}
         public bool DoiMatKhau(string tendn, string mk)
         {
             try

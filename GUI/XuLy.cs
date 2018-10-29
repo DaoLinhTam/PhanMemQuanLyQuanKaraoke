@@ -46,14 +46,28 @@ namespace GUI
              return   TinhToanID(strMA, str0, intTam);
             }
         }
-        
+
+        public string AutoID5(string strMA, string strMaTop)
+        {
+
+            if (strMaTop == null)
+            {
+                return strMA + "001";
+            }
+            else
+            {
+                string[] str0 = { "0", "00" };
+                int intTam = int.Parse(strMaTop.Substring(2));
+                return TinhToanID(strMA, str0, intTam);
+            }
+        }
         
 
         public string AutoID_PhieuDatPhong(string strMA,string strMaTop)
         {
             DateTime t=DateTime.Now;
 
-            string strDate = "PH"+t.ToString("dd/MM/yyyy").Replace("/", "");
+            string strDate = strMA+t.ToString("dd/MM/yyyy").Replace("/", "");
             t = new DateTime(t.Year, t.Month, t.Day,0,0,0);
             if (strMaTop==null)
                 return strDate + "001";
@@ -97,6 +111,16 @@ namespace GUI
           
         }
 
+
+        public bool KTFullData(Control[] ctr)
+        {
+            foreach (Control c in ctr)
+            {
+                if (c.Text.Length == 0)
+                    return false;
+            }
+            return true;
+        }
         private string TinhToanID(string strHead,string []str0,int intTam)
         {
             String strID = null;

@@ -6,26 +6,34 @@ using System.Threading.Tasks;
 
 namespace DAL
 {
-   public class NhomNguoiDung_DAL:Database
+   public class NhomNguoiDungTB_DAL:Database
     {
 
+       //public dynamic load_NhomND()
+       //{
+       //    var c = (from mh in db.MANHINHs join pq in db.PHANQUYENs
+       //             on mh.MAMANHINH equals pq.MAMANHINH
+                    
+       //             select new { mh.MAMANHINH, mh.TENMANHINH, pq.COQUYEN });
+       //    return c;      
+       //}
        
-        public bool themNhomNguoiDung(string manhom, string  tennhom)
-        {
-            try
-            {
-                NHOMNGUOIDUNG nhomND = new NHOMNGUOIDUNG();
-                nhomND.MANHOM = manhom;
-                nhomND.TENNHOM = tennhom;
-                db.NHOMNGUOIDUNGs.InsertOnSubmit(nhomND);
-                db.SubmitChanges();
-                return true;
-            }
-            catch
-            {
-                return false;
-            }
-        }
+        //public bool themNhomNguoiDung(string manhom, string  tennhom)
+        //{
+        //    try
+        //    {
+        //        NHOMNGUOIDUNG nhomND = new NHOMNGUOIDUNG();
+        //        nhomND.MANHOM = manhom;
+        //        nhomND.TENNHOM = tennhom;
+        //        db.NHOMNGUOIDUNGs.InsertOnSubmit(nhomND);
+        //        db.SubmitChanges();
+        //        return true;
+        //    }
+        //    catch
+        //    {
+        //        return false;
+        //    }
+        //}
     
 
         public bool xoaNhomNguoiDung(string manhom)

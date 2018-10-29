@@ -11,8 +11,7 @@ namespace DAL_DATASET
   public  class PhieuDatPhong_DAL
     {
         PHIEUDATPHONGTableAdapter adapter = new PHIEUDATPHONGTableAdapter();
-        CHITIET_PHIEUDATPHONGTableAdapter ch_adapter = new CHITIET_PHIEUDATPHONGTableAdapter();
-   
+        CHITIET_PHIEUDATPHONGTableAdapter ch_adapter = new CHITIET_PHIEUDATPHONGTableAdapter(); 
         PHONGTableAdapter ph_adapter = new PHONGTableAdapter();
        
         public DataTable getData()
@@ -63,14 +62,18 @@ namespace DAL_DATASET
             return adapter.InsertQuery(MAPHIEUDH, MAKH, MANV, NGAYDAT.ToShortDateString(), NGAYVAO.ToShortDateString(), GIOVAO);
         }
 
-
-        public bool CheckPhongTrong(string MAPHONG,string NGAYVAO,int GIOSOSANH)
+        public int Xoa(string MAPHIEUDH)
         {
-            int k=(int)adapter.CheckPhongTrong(MAPHONG, NGAYVAO, GIOSOSANH);
-            if (k > 0)
-                return false;
-            else return true;
+            return adapter.DeleteQuery(MAPHIEUDH);
         }
+
+        public int Sua(string MAKH, string MANV, string NGAYDAT, string NGAYVAO, string GIOVAO, string TONGGIO, string MAPHIEUDH)
+        {
+            return adapter.UpdateQuery(MANV, NGAYVAO, GIOVAO, MAPHIEUDH);
+        }
+
+
+      
 
         public bool CheckPhongDat_ByMa(string NGAYVAO,string MAPH)
         {
@@ -84,6 +87,19 @@ namespace DAL_DATASET
         {
             DataTable dt = adapter.GetGioPhongDat(MAPH, NGAYVAO);
             return dt.Rows[0]["GIOVAO"].ToString();
+        }
+
+        public int Lay_GioVaoCuaPhong(string NGAYVAO,string MAPH)
+        {
+            try
+            {
+             DataTable dt= adapter.Lay_GioVaoCuaPhong(NGAYVAO, MAPH);
+             String str = dt.Rows[0]["GioVao"].ToString();
+             return int.Parse(str.Substring(0, 2));
+             
+            }
+            catch { return -1; }
+            
         }
 
 
